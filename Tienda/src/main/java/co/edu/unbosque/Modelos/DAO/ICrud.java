@@ -10,7 +10,8 @@ public interface ICrud {
 	
 	public abstract String agregar(Object registro);
 	public abstract List<Object> listar();
-	public abstract String eliminar(Object registro);
+	public abstract String eliminar(int id);
+	public abstract String eliminarString(String id);
 	public abstract String actualizar(Object registro);
 
 }
