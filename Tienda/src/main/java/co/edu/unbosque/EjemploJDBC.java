@@ -16,7 +16,7 @@ public class EjemploJDBC {
             );
 
             // Preparar la consulta
-            String query = "SELECT * FROM PRUEBA.Ejemplo";
+            String query = "SELECT * FROM HOMECENTER.Ejemplo";
             PreparedStatement preparedStatement = connection.prepareStatement(query);
 
             // Ejecutar la consulta
