@@ -12,8 +12,8 @@ public class EjemploJDBC {
         try {
             // Establecer la conexión
             Connection connection = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:XE", "SYSTEM", "changeme"
-            );
+                "jdbc:oracle:thin:@localhost:1521:XE", "SYSTEM", "icarvajals" 
+            );// password changeme
 
             // Preparar la consulta
             String query = "SELECT * FROM HOMECENTER.Ejemplo";

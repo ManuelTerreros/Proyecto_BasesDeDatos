@@ -1,6 +1,7 @@
 package co.edu.unbosque.Modelos.DTO;
 
 public class Ejemplo {
+	
 	private String nombre, descripcion;
 	private Long id;
 	
