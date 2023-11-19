@@ -8,7 +8,7 @@ public class Venta_ProductoDTO {
 	private int precio_Total;
 	
 	public Venta_ProductoDTO() {
-		// TODO Auto-generated constructor stub
+	
 	}
 
 	public Venta_ProductoDTO(int venta, int id_Producto, int cantidad, int precio_Total) {

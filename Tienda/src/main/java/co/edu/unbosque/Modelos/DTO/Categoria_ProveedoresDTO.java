@@ -5,7 +5,7 @@ public class Categoria_ProveedoresDTO {
 	private String descrip_categoria;
 	
 	public Categoria_ProveedoresDTO() {
-		// TODO Auto-generated constructor stub
+
 	}
 	
 	public Categoria_ProveedoresDTO(int id_categoria, String descrip_categoria) {

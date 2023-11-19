@@ -7,7 +7,7 @@ public class Ubicacion_Sucursal {
 	private String direccion;
 	
 	public Ubicacion_Sucursal() {
-		// TODO Auto-generated constructor stub
+		
 	}
 
 	public Ubicacion_Sucursal(int id_ubicacion, String ciudad, int id_pais, String direccion) {

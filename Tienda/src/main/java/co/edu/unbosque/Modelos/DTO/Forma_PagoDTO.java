@@ -4,7 +4,7 @@ public class Forma_PagoDTO {
 	private int id_pago;
 	private String descrip_forma;
 	public Forma_PagoDTO() {
-		// TODO Auto-generated constructor stub
+
 	}
 	public Forma_PagoDTO(int id_pago, String descrip_forma) {
 		super();
