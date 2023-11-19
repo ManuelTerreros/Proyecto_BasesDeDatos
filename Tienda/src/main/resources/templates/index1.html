@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Prueba1</title>
+</head>
+<body>
+	<h2>Lista Clientes</h2>
+	<table>
+		<thead>
+			<tr>
+               <td>id cliente</td>
+               <td>Doc</td>
+               <td>Nombre</td>
+               <td>Apellido</td>
+               <td>fechac de regstro</td>
+               <td>Telefono</td>
+               <td>Ciudad</td>
+               <td>Direccion</td>
+               <td>id afiliado</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="clienteDTO: ${listaclientes}">
+		       <td th:text="${clienteDTO.idclientes}" ></td>
+		       <td th:text="${clienteDTO.tipodoc}" ></td>
+		       <td th:text="${clienteDTO.nombres}" ></td>
+		       <td th:text="${clienteDTO.apellidos}" ></td>
+		       <td th:text="${clienteDTO.fecharegistro}" ></td>
+		       <td th:text="${clienteDTO.telefono}" ></td>
+		        <td th:text="${clienteDTO.ciudad}" ></td>
+		       <td th:text="${clienteDTO.direccion}" ></td>
+		       <td th:text="${clienteDTO.idafiliado}" ></td>
+		   </tr>
+		</tbody>
+	</table>
+</body>
+</html>
