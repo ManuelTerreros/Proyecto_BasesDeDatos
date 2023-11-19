@@ -7,6 +7,10 @@ public class AfiliadoDTO {
 	private int puntos;
 	private int id_descuento_afiliado;
 	
+	public AfiliadoDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public AfiliadoDTO(int id_afiliado, String descrip_afiliado, int puntos, int id_descuento_afiliado) {
 		super();
 		this.id_afiliado = id_afiliado;

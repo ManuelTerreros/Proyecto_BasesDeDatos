@@ -11,6 +11,10 @@ public class ProductoDTO {
 	private int precioTotal;
 	private int id_promocion;
 	
+	public ProductoDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public ProductoDTO(int id_producto, String descrip_producto, int iva, int precio, String id_categoria, int id_sucursal,
 			int precioTotal, int id_promocion) {
 		super();

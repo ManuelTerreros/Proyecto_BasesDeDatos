@@ -7,7 +7,11 @@ public class PromocionesDTO {
 	private String descrip_prom;
 	private String fecha_inicio;
 	private String fecha_final;
-	private String condiciones_prom;
+	private String condiciones_prom; 
+	
+	public PromocionesDTO() {
+		// TODO Auto-generated constructor stub
+	}
 	
 	public PromocionesDTO(int id_promocion, String nombre_prom, String descrip_prom, String fecha_inicio,
 			String fecha_final, String condiciones_prom) {

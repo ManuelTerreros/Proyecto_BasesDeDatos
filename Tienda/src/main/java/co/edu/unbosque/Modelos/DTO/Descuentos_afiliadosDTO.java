@@ -6,6 +6,10 @@ public class Descuentos_afiliadosDTO {
 	private String descrip_descuento;
 	private String condiciones_descuento;
 	
+	public Descuentos_afiliadosDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Descuentos_afiliadosDTO(int id_descuentos_afiliados, String descrip_descuento, String condiciones_descuento) {
 		super();
 		this.id_descuentos_afiliados = id_descuentos_afiliados;

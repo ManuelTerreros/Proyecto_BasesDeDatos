@@ -12,6 +12,10 @@ public class ClienteDTO {
 	private String direccion;
 	private int id_afiliado;
 	
+	public ClienteDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public ClienteDTO(int id_clientes, String tipo_doc, String nombres, String apellidos, String fecha_registro,
 			int telefono, String ciudad, String direccion, int id_afiliado) {
 		super();

@@ -8,6 +8,10 @@ public class Factura_ventaDTO {
 	private String id_envio;
 	private int id_promocion_afili;
 	
+	public Factura_ventaDTO() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public Factura_ventaDTO(int id_venta, int id_trabajador, int id_clinte, String id_envio, int id_promocion_afili) {
 		super();
 		this.id_venta = id_venta;
