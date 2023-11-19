@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+    <title>Homecenter-cliente</title>
+    <style>
+        .imagen1 {
+            position: absolute;
+            top: 60px;
+            left: 300px;
+            width: 1190px;
+            height: 675px;
+            opacity: 0.6;
+        }
+
+        .formularioCliente {
+            position: absolute;
+            width: 400px;
+            top: 180;
+            left: 600;
+            font-size: 20px;
+            border: 5px;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 50px;
+            position: absolute;
+            top: 40px;
+            left: 600px;
+        }
+
+        .menu {
+            position: fixed !important;
+            left: 0 !important;
+            width: 300px !important;
+            height: 100% !important;
+            background: #042331 !important;
+        }
+
+        header {
+            font-size: 22px !important;
+            color: white !important;
+            text-align: center !important;
+            line-height: 70px !important;
+            background: #0799b6 !important;
+        }
+
+        .menu ul a {
+            display: block !important;
+            line-height: 65px !important;
+            font-size: 20px !important;
+            color: white !important;
+            padding-left: 40px !important;
+            box-sizing: border-box !important;
+            border-top: 1px solid rgba(255, 255, 255, .1) !important;
+            border-bottom: 1px solid black !important;
+            text-decoration: none !important;
+            list-style: none !important;
+        }
+
+        ul li:hover a {
+            padding-left: 50px !important;
+        }
+
+        .panel1 {
+            background: #D35400;
+        }
+    </style>
+</head>
+<body>
+    <div class="menu">
+        <header>Menu</header>
+        <ul style="">
+            <li><a href="index.xhtml">Inicio</a></li>
+            <li><a href="cliente.xhtml">Cliente</a></li>
+            <li><a href="productos.xhtml">Productos</a></li>
+            <li><a href="promociones.xhtml">Promociones</a></li>
+            <li><a href="afiliados.xhtml">Afiliados</a></li>
+            <li><a href="cliente.xhtml">Ivan</a></li>
+            <li><a href="admin.xhtml">Ingresar</a></li>
+        </ul>
+    </div>
+
+    <div class="panel1">
+        <label>holaa</label>
+    </div>
+
+    <h1>Cliente</h1>
+
+    <img class="imagen1" src="Fondo.jpg" alt="Fondo">
+
+    <form class="formularioCliente">
+        <fieldset>
+            <legend>Login</legend>
+            <label for="documento">Documento:</label>
+            <input type="text" id="documento" name="documento" required="true" />
+
+            <label for="nombres">Nombres:</label>
+            <input type="text" id="nombres" name="nombres" required="true" />
+
+            <label for="apellidos">Apellidos:</label>
+            <input type="text" id="apellidos" name="apellidos" required="true" />
+
+            <label for="fechaRegistro">Fecha de registro:</label>
+            <input type="text" id="fechaRegistro" name="fechaRegistro" required="true" />
+
+            <label for="telefono">Telefono:</label>
+            <input type="text" id="telefono" name="telefono" required="true" />
+
+            <label for="ciudad">Ciudad:</label>
+            <input type="text" id="ciudad" name="ciudad" required="true" />
+
+            <label for="direccion">Direccion:</label>
+            <input type="text" id="direccion" name="direccion" required="true" />
+
+            <button type="submit">Registrar</button>
+        </fieldset>
+    </form>
+</body>
+</html>
