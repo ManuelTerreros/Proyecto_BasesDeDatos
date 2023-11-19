@@ -8,12 +8,14 @@ public class Factura_CompraDTO {
 	private int iva;
 	private int total;
 	private int id_Proveedor;
+	private int id_Producto;
 	
 	public Factura_CompraDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Factura_CompraDTO(int id_Compra, int cantidad, int precio_Lote, int iva, int total, int id_Proveedor) {
+	public Factura_CompraDTO(int id_Compra, int cantidad, int precio_Lote, int iva, int total, int id_Proveedor,
+			int id_Producto) {
 		super();
 		this.id_Compra = id_Compra;
 		this.cantidad = cantidad;
@@ -21,6 +23,7 @@ public class Factura_CompraDTO {
 		this.iva = iva;
 		this.total = total;
 		this.id_Proveedor = id_Proveedor;
+		this.id_Producto = id_Producto;
 	}
 
 	public int getId_Compra() {
@@ -70,7 +73,15 @@ public class Factura_CompraDTO {
 	public void setId_Proveedor(int id_Proveedor) {
 		this.id_Proveedor = id_Proveedor;
 	}
-	
+
+	public int getId_Producto() {
+		return id_Producto;
+	}
+
+	public void setId_Producto(int id_Producto) {
+		this.id_Producto = id_Producto;
+	}
+
 	
 
 }
