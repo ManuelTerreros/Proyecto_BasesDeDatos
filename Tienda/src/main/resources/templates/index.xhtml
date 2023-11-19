@@ -1,0 +1,125 @@
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
+	<title>Homecenter</title>
+</h:head>
+<h:body>
+	<div class="menu">
+		<header>Menu</header>
+		<ul style="">
+		    <li><a href="index.xhtml">Inicio</a></li>
+			<li><a href="cliente.xhtml">Cliente </a></li>
+			<li><a href="productos.xhtml">Productos</a></li>
+			<li><a href="promociones.xhtml">Promociones </a></li>
+			<li><a href="afiliados.xhtml">Afiliados</a></li>
+			<li><a href="cliente.xhtml">Ivan</a></li>
+			<li><a href="admin.xhtml">Ingresar </a></li>
+		</ul>
+	</div>
+
+	<p:panel styleClass="panel1">
+		<h:outputLabel>holaa</h:outputLabel>
+	</p:panel>
+
+	<h1>Bienvenidos a Homecenter</h1>
+
+	<h:graphicImage library="Img" name="imagen1.jpg" styleClass="imagen1" />
+
+	<p:panel styleClass="panel3">
+		<f:facet name="header">
+			<h:graphicImage library="Img" name="imagen1.jpg" styleClass="imagen2" />
+			<f:facet name="header">
+				<h:outputLabel>vision</h:outputLabel>
+			</f:facet>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Inventore sed consequuntur error repudiandae numquam deserunt
+				quisquam repellat libero asperiores earum nam nobis, culpa ratione
+				quam perferendis esse, cupiditate neque quas!</p>
+
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+				Inventore sed consequuntur error repudiandae numquam deserunt
+				quisquam repellat libero asperiores earum nam nobis, culpa ratione
+				quam perferendis esse, cupiditate neque quas!</p>
+		</f:facet>
+
+	</p:panel>
+</h:body>
+
+<style>
+.imagen1 {
+	position: absolute;
+	width: 400px;
+	height: 550px;
+	top: 140px;
+	left: 360px;
+}
+
+.panel1 {
+	background: #D35400;
+}
+
+h1 {
+	text-align: center;
+	font-size: 50px;
+	position: absolute;
+	top: 40px;
+	left: 450px;
+}
+
+.imagen2 {
+	width: 200px;
+	height: 150px;
+}
+
+.panel3 {
+	position: absolute;
+	width: 400px;
+	height: 550px;
+	top: 150px;
+	left: 850px;
+}
+
+.menu {
+	position: fixed !important;
+	left: 0 !important;
+	width: 300px !important;
+	height: 100% !important;
+	background: #042331 !important;
+}
+
+header {
+	font-size: 22px !important;
+	color: white !important;
+	text-align: center !important;
+	line-height: 70px !important;
+	background: #0799b6 !important;
+}
+
+.menu ul a {
+	display: block !important;
+	line-height: 65px !important;
+	font-size: 20px !important;
+	display: block !important;
+	line-height: 65px !important;
+	font-size: 20px !important;
+	font-size: 20px !important;
+	color: white !important;
+	padding-left: 40px !important;
+	box-sizing: border-box !important;
+	border-top: 1px solid rgba(255, 255, 255, .1) !important;
+	border-bottom: 1px solid black !important;
+	text-decoration: none !important;
+	list-style: none !important;
+}
+
+ul li:hover a {
+	padding-left: 50px !important;
+    background: #7F8C8D;
+}
+</style>
+</html>
