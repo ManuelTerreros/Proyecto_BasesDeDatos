@@ -7,7 +7,7 @@ public class ClienteDTO {
 	private String nombres;
 	private String apellidos;
 	private String fecharegistro;
-	private int telefono;
+	private String telefono;
 	private String ciudad;
 	private String direccion;
 	private int idafiliado;
@@ -17,7 +17,7 @@ public class ClienteDTO {
 	}
 
 	public ClienteDTO(int idclientes, String tipodoc, String nombres, String apellidos, String fecharegistro,
-			int telefono, String ciudad, String direccion, int idafiliado) {
+			String telefono, String ciudad, String direccion, int idafiliado) {
 		super();
 		this.idclientes = idclientes;
 		this.tipodoc = tipodoc;
@@ -69,12 +69,11 @@ public class ClienteDTO {
 	public void setFecharegistro(String fecharegistro) {
 		this.fecharegistro = fecharegistro;
 	}
-
-	public int getTelefono() {
+	public String getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(String telefono) {
 		this.telefono = telefono;
 	}
 

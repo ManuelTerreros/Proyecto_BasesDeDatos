@@ -15,15 +15,26 @@ public class ClienteDAO implements ICrud {
 
 	@Override
 	public List<ClienteDTO> Listar() {
-		String sql = "select * from HomeCenter.cliente";
+		String sql = "SELECT * FROM HomeCenter.cliente";
 		List<ClienteDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(ClienteDTO.class));
 		return lista;
 	}
 
 	@Override
 	public int guardar(ClienteDTO clienteDTO) {
-		// TODO Auto-generated method stub
-		return 0;
+		String sql = "INSERT INTO Homecenter.cliente(idclientes,tipodoc,nombres,apellidos,fecharegistro,telefono,ciudad,direccion,idafiliado) VALUES(?,?,?,?,?,?,?,?,?)";
+		return jdbctemple1.update(
+				sql, 
+				clienteDTO.getIdclientes(), 
+				clienteDTO.getTipodoc(),
+				clienteDTO.getNombres(),
+				clienteDTO.getApellidos(),
+				clienteDTO.getFecharegistro(),
+				clienteDTO.getTelefono(),
+				clienteDTO.getCiudad(), 
+				clienteDTO.getDireccion(),
+				clienteDTO.getIdafiliado()
+				);
 	}
 
 	@Override
