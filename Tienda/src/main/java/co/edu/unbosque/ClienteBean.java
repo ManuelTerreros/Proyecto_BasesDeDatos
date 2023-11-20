@@ -33,7 +33,7 @@ public class ClienteBean {
 	
 	@PostMapping("/guardar")
 	public String guardar(@ModelAttribute ClienteDTO clienteDTO) {
-		cldao.guardar(clienteDTO);
+		cldao.guardarCliente(clienteDTO);
 		return "redirect:/listar";
 	}
 }

@@ -12,16 +12,17 @@ public class ClienteDAO implements ICrud {
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
-
+	
 	@Override
-	public List<ClienteDTO> Listar() {
+	public List<ClienteDTO>Listar() {
 		String sql = "SELECT * FROM HomeCenter.cliente";
 		List<ClienteDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(ClienteDTO.class));
 		return lista;
 	}
 
-	@Override
-	public int guardar(ClienteDTO clienteDTO) {
+	
+	// preguntar a Ricardoel update no se uede usar
+	public int guardarCliente(ClienteDTO clienteDTO) {
 		String sql = "INSERT INTO Homecenter.cliente(idclientes,tipodoc,nombres,apellidos,fecharegistro,telefono,ciudad,direccion,idafiliado) VALUES(?,?,?,?,?,?,?,?,?)";
 		return jdbctemple1.update(
 				sql, 
@@ -36,6 +37,7 @@ public class ClienteDAO implements ICrud {
 				clienteDTO.getIdafiliado()
 				);
 	}
+	
 
 	@Override
 	public ClienteDTO buscarId(int idcliente) {
@@ -48,10 +50,25 @@ public class ClienteDAO implements ICrud {
 		// TODO Auto-generated method stub
 		return 0;
 	}
+	
 
 	@Override
-	public int borrar(int idcliente) {
+	public int borrar(long id) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+
+	@Override
+	public String buscarId(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	@Override
+	public String buscarId(String id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

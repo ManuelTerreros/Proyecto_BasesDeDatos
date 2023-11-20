@@ -10,9 +10,12 @@ import co.edu.unbosque.Modelos.DTO.ClienteDTO;
 public interface ICrud {
 	
 	public List<ClienteDTO> Listar();
-	public int guardar(ClienteDTO clienteDTO);
+	public int guardarCliente(ClienteDTO clienteDTO);
+	
 	public ClienteDTO buscarId(int idcliente);
 	public int actualizar(ClienteDTO clienteDTO);
-	public int borrar (int idcliente);
+	public int borrar (long id);
+	public String buscarId(long id);
+	public String buscarId(String id);
 
 }
