@@ -2,7 +2,7 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class CargoDTO {
 	
-	private int id_Cargo;
+	private String id_Cargo;
 	private String descrip_Cargo;
 	private int cant_Trabajadores;
 	private int sal_Min;
@@ -12,7 +12,8 @@ public class CargoDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public CargoDTO(int id_Cargo, String descrip_Cargo, int cant_Trabajadores, int sal_Min, int sal_Max) {
+
+	public CargoDTO(String id_Cargo, String descrip_Cargo, int cant_Trabajadores, int sal_Min, int sal_Max) {
 		super();
 		this.id_Cargo = id_Cargo;
 		this.descrip_Cargo = descrip_Cargo;
@@ -21,13 +22,17 @@ public class CargoDTO {
 		this.sal_Max = sal_Max;
 	}
 
-	public int getId_Cargo() {
+	
+
+	public String getId_Cargo() {
 		return id_Cargo;
 	}
 
-	public void setId_Cargo(int id_Cargo) {
+
+	public void setId_Cargo(String id_Cargo) {
 		this.id_Cargo = id_Cargo;
 	}
+
 
 	public String getDescrip_Cargo() {
 		return descrip_Cargo;
