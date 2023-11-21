@@ -2,7 +2,7 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class InventarioDTO {
 	
-	private int id_Inventario;
+	private String id_Inventario;
 	private int id_Producto;
 	private int costo_Producto;
 	private int cantidad_Inventario;
@@ -12,7 +12,9 @@ public class InventarioDTO {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public InventarioDTO(int id_Inventario, int id_Producto, int costo_Producto, int cantidad_Inventario,
+	
+
+	public InventarioDTO(String id_Inventario, int id_Producto, int costo_Producto, int cantidad_Inventario,
 			int costo_Toltal_Inv) {
 		super();
 		this.id_Inventario = id_Inventario;
@@ -22,13 +24,19 @@ public class InventarioDTO {
 		this.costo_Toltal_Inv = costo_Toltal_Inv;
 	}
 
-	public int getId_Inventario() {
+	
+
+	public String getId_Inventario() {
 		return id_Inventario;
 	}
 
-	public void setId_Inventario(int id_Inventario) {
+
+
+	public void setId_Inventario(String id_Inventario) {
 		this.id_Inventario = id_Inventario;
 	}
+
+
 
 	public int getId_Producto() {
 		return id_Producto;

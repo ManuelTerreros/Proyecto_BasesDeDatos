@@ -9,14 +9,16 @@ public class TrabajadorDTO {
 	private String tipo_Doc;
 	private Date fecha_Contratacion;
 	private int id_Depto;
-	private int id_Cargo;
+	private String id_Cargo;
 	
 	public TrabajadorDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
+	
+
 	public TrabajadorDTO(int id_Trabajador, String nom_Trabajador, String tipo_Doc, Date fecha_Contratacion,
-			int id_Depto, int id_Cargo) {
+			int id_Depto, String id_Cargo) {
 		super();
 		this.id_Trabajador = id_Trabajador;
 		this.nom_Trabajador = nom_Trabajador;
@@ -25,6 +27,20 @@ public class TrabajadorDTO {
 		this.id_Depto = id_Depto;
 		this.id_Cargo = id_Cargo;
 	}
+
+	
+
+	public String getId_Cargo() {
+		return id_Cargo;
+	}
+
+
+
+	public void setId_Cargo(String id_Cargo) {
+		this.id_Cargo = id_Cargo;
+	}
+
+
 
 	public int getId_Trabajador() {
 		return id_Trabajador;
@@ -66,12 +82,5 @@ public class TrabajadorDTO {
 		this.id_Depto = id_Depto;
 	}
 
-	public int getId_Cargo() {
-		return id_Cargo;
-	}
-
-	public void setId_Cargo(int id_Cargo) {
-		this.id_Cargo = id_Cargo;
-	}
-
+	
 }
