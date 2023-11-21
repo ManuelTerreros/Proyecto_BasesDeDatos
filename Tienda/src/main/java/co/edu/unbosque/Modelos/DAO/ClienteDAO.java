@@ -53,9 +53,12 @@ public class ClienteDAO implements ICrud {
 		return null;
 	}
 	@Override
-	public int borrar(long id) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int borrar(long idclientes) {
+		String sql = "DELETE FROM Homecenter.cliente WHERE idclientes = ?";
+        return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
+            ps.setLong(1, idclientes);
+            return ps.execute() ? 1 : 0;
+        });
 	}
 
 	@Override

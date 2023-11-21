@@ -51,6 +51,12 @@ public class ClienteBean {
 		return "redirect:/listar";
 	}
 	
+	@GetMapping("/borrar/{id}")
+	public String borrar (@PathVariable long id) {
+		cldao.borrar(id);
+		return "redirect:/listar";
+	}
+	
 	@GetMapping("/ingresar")
 	public String ingresar() {
 		return "Menu";

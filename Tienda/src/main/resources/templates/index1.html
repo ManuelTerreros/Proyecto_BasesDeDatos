@@ -21,7 +21,7 @@
                <td>Ciudad</td>
                <td>Direccion</td>
                <td>id afiliado</td>
-               <td>Actualizar</td>
+               <td>Comandos</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,6 +37,7 @@
 		       <td th:text="${clienteDTO.idafiliado}" ></td>
 		       <td>
 		         <a th:href="@{/editar/{id}(id=${clienteDTO.idclientes})}" class="btn btn-warning">Editar</a>
+		         <a th:href="@{/borrar/{id}(id=${clienteDTO.idclientes})}" class="btn btn-danger">Borrar</a>
 		       </td>
 		   </tr>
 		</tbody>
