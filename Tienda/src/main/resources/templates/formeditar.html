@@ -1,0 +1,53 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Actualizar</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid-p-5">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h2>Actualizar</h2>
+                <form th:action="@{/actualizar}" th:object="${clienteDTO}" method="post">
+                 
+                 <label>Cedula</label>
+                 <input type="text" th:field="*{idclientes}" class="form-control">
+                 
+                 <br>
+                 <label>Tipo de Documento</label>
+                 <input type="text" th:field="*{tipodoc}" class="form-control">
+                 
+                 <label>Nombres</label>
+                 <input type="text" th:field="*{nombres}" class="form-control">
+                 
+                 <label>Apellidos</label>
+                 <input type="text" th:field="*{apellidos}" class="form-control">
+                 
+                 <label>Fecha de registro</label>
+                 <input type="text" th:field="*{fecharegistro}" class="form-control">
+                 
+                 <label>Telefono</label>
+                 <input type="text" th:field="*{telefono}" class="form-control" pattern="[0-9]+">
+                 
+                 <label>Ciudad</label>
+                 <input type="text" th:field="*{ciudad}" class="form-control">
+                 
+                  <label>Direccion</label>
+                 <input type="text" th:field="*{direccion}" class="form-control">
+                 
+                 <label>No Afiliado</label>
+                 <input type="text" th:field="*{idafiliado}" class="form-control">
+                 
+                 <input type="submit" value="Actualizar" class="btn btn-success">
+                </form>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

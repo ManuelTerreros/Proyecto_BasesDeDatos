@@ -11,11 +11,10 @@ public interface ICrud {
 	
 	public List<ClienteDTO> Listar();
 	public int guardarCliente(ClienteDTO clienteDTO);
-	
 	public ClienteDTO buscarId(int idcliente);
 	public int actualizar(ClienteDTO clienteDTO);
 	public int borrar (long id);
-	public String buscarId(long id);
+	public ClienteDTO buscarId(long id);
 	public String buscarId(String id);
 
 }

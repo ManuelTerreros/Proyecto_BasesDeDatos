@@ -8,6 +8,7 @@
     <div class="container">
 	<h2>Lista Clientes</h2>
 	<a th:href="@{/agregarboton}" class="btn btn-info">Registrar</a>
+	<a th:href="@{/regresar}" class="btn btn-info">Regresar</a>
 	<table class="table table-striped">
 		<thead>
 			<tr>
@@ -20,6 +21,7 @@
                <td>Ciudad</td>
                <td>Direccion</td>
                <td>id afiliado</td>
+               <td>Actualizar</td>
 			</tr>
 		</thead>
 		<tbody>
@@ -33,6 +35,9 @@
 		        <td th:text="${clienteDTO.ciudad}" ></td>
 		       <td th:text="${clienteDTO.direccion}" ></td>
 		       <td th:text="${clienteDTO.idafiliado}" ></td>
+		       <td>
+		         <a th:href="@{/editar/{id}(id=${clienteDTO.idclientes})}" class="btn btn-warning">Editar</a>
+		       </td>
 		   </tr>
 		</tbody>
 	</table>
