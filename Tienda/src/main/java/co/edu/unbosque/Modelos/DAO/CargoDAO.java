@@ -11,21 +11,24 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.AfiliadoDTO;
 import co.edu.unbosque.Modelos.DTO.CargoDTO;
 
 @Repository
-public class CargoDAO {
+public class CargoDAO implements ICrud1<CargoDTO>{
 
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<CargoDTO>Listar() {
+	@Override
+	public List<CargoDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.cargo";
 		List<CargoDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(CargoDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(CargoDTO cargoDTO) {
 		String sql = "INSERT INTO Homecenter.cargo(id_Cargo,descrip_Cargo,cant_Trabajadores,sal_Min,sal_Max)"
 				+ " VALUES(?,?,?,?,?)";
@@ -44,6 +47,7 @@ public class CargoDAO {
 	}
 	
 
+	@Override
 	public int borrar(String id_Cargo) {
 		String sql = "DELETE FROM Homecenter.cargo WHERE id_Cargo = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -52,6 +56,7 @@ public class CargoDAO {
         });
 	}
 
+	@Override
 	public int actualizar(CargoDTO cargoDTO) {
 		String sql = "UPDATE Homecenter.cargo SET descrip_Cargo = ?, cant_Trabajadores = ?, sal_Min = ?, sal_Max = ? WHERE id_Cargo = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -65,6 +70,7 @@ public class CargoDAO {
         });
 	}
 
+	@Override
 	public CargoDTO buscarId(String id) {
 		String sql = "SELECT * FROM Homecenter.cargo WHERE id_Cargo = ?";
 		CargoDTO cargodto = jdbctemple1.queryForObject(sql, new Object[] {id},

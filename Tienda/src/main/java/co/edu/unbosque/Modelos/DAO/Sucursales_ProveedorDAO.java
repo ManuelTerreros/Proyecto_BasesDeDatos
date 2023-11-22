@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Sucursales_proveedorDTO;
 
 @Repository
-public class Sucursales_ProveedorDAO {
+public class Sucursales_ProveedorDAO implements ICrud1<Sucursales_proveedorDTO>{
 	  @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
+	  @Override
 	    public List<Sucursales_proveedorDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.sucursales_proveedor";
 	        List<Sucursales_proveedorDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(Sucursales_proveedorDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarSucursalProveedor(Sucursales_proveedorDTO sucursales_proveedorDTO) {
+	    @Override
+	    public int guardar(Sucursales_proveedorDTO sucursales_proveedorDTO) {
 	        String sql = "INSERT INTO Homecenter.sucursales_proveedor(id_SucursalP, ciudad, id_Pais)"
 	                + " VALUES(?,?,?)";
 
@@ -33,7 +36,8 @@ public class Sucursales_ProveedorDAO {
 	        });
 	    }
 
-	    public int actualizarSucursalProveedor(Sucursales_proveedorDTO sucursales_proveedorDTO) {
+	    @Override
+	    public int actualizar(Sucursales_proveedorDTO sucursales_proveedorDTO) {
 	        String sql = "UPDATE Homecenter.sucursales_proveedor SET ciudad = ?, id_Pais = ? WHERE id_SucursalP = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, sucursales_proveedorDTO.getCiudad());
@@ -44,7 +48,8 @@ public class Sucursales_ProveedorDAO {
 	        });
 	    }
 
-	    public int borrarSucursalProveedor(String idSucursalP) {
+	    @Override
+	    public int borrar(String idSucursalP) {
 	        String sql = "DELETE FROM Homecenter.sucursales_proveedor WHERE id_SucursalP = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setString(1, idSucursalP);
@@ -52,6 +57,7 @@ public class Sucursales_ProveedorDAO {
 	        });
 	    }
 
+	    @Override
 	    public Sucursales_proveedorDTO buscarId(String idSucursalP) {
 	        String sql = "SELECT * FROM Homecenter.sucursales_proveedor WHERE id_SucursalP = ?";
 	        Sucursales_proveedorDTO sucursales_proveedorDTO = jdbcTemplate.queryForObject(sql, new Object[] {idSucursalP},

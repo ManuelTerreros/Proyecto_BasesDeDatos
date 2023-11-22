@@ -8,20 +8,22 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.LoteDTO;
 
 @Repository
-public class LoteDAO {
+public class LoteDAO implements ICrud<LoteDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate1;
 
+	 @Override
 	    public List<LoteDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.lote";
 	        List<LoteDTO> lista = jdbcTemplate1.query(sql, BeanPropertyRowMapper.newInstance(LoteDTO.class));
 	        return lista;
 	    }
-
-	    public int guardarLote(LoteDTO loteDTO) {
+	 @Override
+	    public int guardar(LoteDTO loteDTO) {
 	        String sql = "INSERT INTO HomeCenter.lote(id_Lote, id_Producto, id_Proveedor, id_Sucursal)"
 	                + " VALUES(?,?,?,?,?)";
 
@@ -34,6 +36,7 @@ public class LoteDAO {
 	        });
 	    }
 
+	 @Override
 	    public int actualizar(LoteDTO loteDTO) {
 	        String sql = "UPDATE HomeCenter.lote SET id_Producto = ?, id_Proveedor = ?, id_Sucursal = ? WHERE id_Lote = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -46,6 +49,7 @@ public class LoteDAO {
 	        });
 	    }
 
+	 @Override
 	    public int borrar(long idLote) {
 	        String sql = "DELETE FROM HomeCenter.lote WHERE idLote = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -54,6 +58,7 @@ public class LoteDAO {
 	        });
 	    }
 
+	 @Override
 	    public LoteDTO buscarId(long idLote) {
 	        String sql = "SELECT * FROM HomeCenter.lote WHERE idLote = ?";
 	        LoteDTO loteDTO = jdbcTemplate1.queryForObject(sql, new Object[]{idLote},

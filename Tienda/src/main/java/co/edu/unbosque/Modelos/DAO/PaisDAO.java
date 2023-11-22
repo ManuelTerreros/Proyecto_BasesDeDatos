@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.PaisDTO;
 
 @Repository
-public class PaisDAO {
+public class PaisDAO implements ICrud<PaisDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
+	 @Override
 	    public List<PaisDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.Pais";
 	        List<PaisDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(PaisDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarPais(PaisDTO paisDTO) {
+	 @Override
+	    public int guardar(PaisDTO paisDTO) {
 	        String sql = "INSERT INTO Homecenter.Pais(id_Pais, nom_Pais, id_Region)"
 	                + " VALUES(?,?,?)";
 
@@ -33,7 +36,8 @@ public class PaisDAO {
 	        });
 	    }
 
-	    public int actualizarPais(PaisDTO paisDTO) {
+	 @Override
+	    public int actualizar(PaisDTO paisDTO) {
 	        String sql = "UPDATE Homecenter.Pais SET nom_Pais = ?, id_Region = ? WHERE id_Pais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, paisDTO.getNom_Pais());
@@ -44,7 +48,8 @@ public class PaisDAO {
 	        });
 	    }
 
-	    public int borrarPais(long idPais) {
+	 @Override
+	    public int borrar(long idPais) {
 	        String sql = "DELETE FROM Homecenter.Pais WHERE idPais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idPais);
@@ -52,7 +57,8 @@ public class PaisDAO {
 	        });
 	    }
 
-	    public PaisDTO buscarPaisPorId(long idPais) {
+	 @Override
+	    public PaisDTO buscarId(long idPais) {
 	        String sql = "SELECT * FROM Homecenter.Pais WHERE idPais = ?";
 	        PaisDTO paisDTO = jdbcTemplate.queryForObject(sql, new Object[] {idPais},
 	                BeanPropertyRowMapper.newInstance(PaisDTO.class));

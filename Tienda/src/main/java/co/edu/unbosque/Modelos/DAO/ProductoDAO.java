@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.ProductoDTO;
 
 @Repository
-public class ProductoDAO {
+public class ProductoDAO implements ICrud<ProductoDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate1;
 
+	 @Override
 	    public List<ProductoDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.producto";
 	        List<ProductoDTO> lista = jdbcTemplate1.query(sql, BeanPropertyRowMapper.newInstance(ProductoDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarProducto(ProductoDTO productoDTO) {
+	 @Override
+	    public int guardar(ProductoDTO productoDTO) {
 	        String sql = "INSERT INTO Homecenter.producto(id_producto, descrip_producto, iva, precio, id_categ, id_sucursal, precio_Despues_Iva, promocion_Prod)"
 	                + " VALUES(?,?,?,?,?,?,?,?)";
 
@@ -38,6 +41,7 @@ public class ProductoDAO {
 	        });
 	    }
 
+	 @Override
 	    public int actualizar(ProductoDTO productoDTO) {
 	        String sql = "UPDATE Homecenter.producto SET descrip_producto = ?, iva = ?, precio = ?, id_categ = ?, id_sucursal = ?, precio_Despues_Iva = ?, promocion_Prod = ? WHERE id_producto = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -54,6 +58,7 @@ public class ProductoDAO {
 	        });
 	    }
 
+	 @Override
 	    public int borrar(long idProducto) {
 	        String sql = "DELETE FROM Homecenter.producto WHERE id_producto = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -62,6 +67,7 @@ public class ProductoDAO {
 	        });
 	    }
 
+	 @Override
 	    public ProductoDTO buscarId(long idProducto) {
 	        String sql = "SELECT * FROM Homecenter.producto WHERE id_producto = ?";
 	        ProductoDTO productoDTO = jdbcTemplate1.queryForObject(sql, new Object[] {idProducto},
