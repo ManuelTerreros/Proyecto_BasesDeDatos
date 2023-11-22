@@ -1,6 +1,6 @@
 package co.edu.unbosque.Modelos.DTO;
 
-public class Ubicacion_SucursalDTO {
+public class SucursalesDTO {
 	
 	private long id_Sucursal;
 	private long num_Empleados;
@@ -8,19 +8,22 @@ public class Ubicacion_SucursalDTO {
 	private String direccion;
 	private String id_Pais;
 	
-	public Ubicacion_SucursalDTO() {
-		// TODO Auto-generated constructor stub
-	}
+public SucursalesDTO() {
+	// TODO Auto-generated constructor stub
+}
 
-	public Ubicacion_SucursalDTO(long id_Sucursal, long num_Empleados, String ciudad, String direccion,
-			String id_Pais) {
-		super();
-		this.id_Sucursal = id_Sucursal;
-		this.num_Empleados = num_Empleados;
-		this.ciudad = ciudad;
-		this.direccion = direccion;
-		this.id_Pais = id_Pais;
-	}
+
+
+	public SucursalesDTO(long id_Sucursal, long num_Empleados, String ciudad, String direccion, String id_Pais) {
+	super();
+	this.id_Sucursal = id_Sucursal;
+	this.num_Empleados = num_Empleados;
+	this.ciudad = ciudad;
+	this.direccion = direccion;
+	this.id_Pais = id_Pais;
+}
+
+
 
 	public long getId_Sucursal() {
 		return id_Sucursal;

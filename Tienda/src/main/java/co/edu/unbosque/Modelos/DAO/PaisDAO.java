@@ -18,14 +18,14 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public List<PaisDTO> listar() {
-	        String sql = "SELECT * FROM HomeCenter.Pais";
+	        String sql = "SELECT * FROM HomeCenter.pais";
 	        List<PaisDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(PaisDTO.class));
 	        return lista;
 	    }
 
 	 @Override
 	    public int guardar(PaisDTO paisDTO) {
-	        String sql = "INSERT INTO Homecenter.Pais(id_Pais, nom_Pais, id_Region)"
+	        String sql = "INSERT INTO Homecenter.pais(id_Pais, nom_Pais, id_Region)"
 	                + " VALUES(?,?,?)";
 
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -38,7 +38,7 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public int actualizar(PaisDTO paisDTO) {
-	        String sql = "UPDATE Homecenter.Pais SET nom_Pais = ?, id_Region = ? WHERE id_Pais = ?";
+	        String sql = "UPDATE Homecenter.pais SET nom_Pais = ?, id_Region = ? WHERE id_Pais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, paisDTO.getNom_Pais());
 	            preparedStatement.setLong(2, paisDTO.getId_Region());
@@ -50,7 +50,7 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public int borrar(long idPais) {
-	        String sql = "DELETE FROM Homecenter.Pais WHERE idPais = ?";
+	        String sql = "DELETE FROM Homecenter.pais WHERE idPais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idPais);
 	            return ps.execute() ? 1 : 0;
@@ -59,7 +59,7 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public PaisDTO buscarId(long idPais) {
-	        String sql = "SELECT * FROM Homecenter.Pais WHERE idPais = ?";
+	        String sql = "SELECT * FROM Homecenter.pais WHERE idPais = ?";
 	        PaisDTO paisDTO = jdbcTemplate.queryForObject(sql, new Object[] {idPais},
 	                BeanPropertyRowMapper.newInstance(PaisDTO.class));
 	        return paisDTO;

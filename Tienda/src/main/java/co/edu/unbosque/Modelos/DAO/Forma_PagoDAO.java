@@ -15,7 +15,7 @@ import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Forma_PagoDTO;
 
 @Repository
-public class Forma_Pago implements ICrud1<Forma_PagoDTO>{
+public class Forma_PagoDAO implements ICrud1<Forma_PagoDTO>{
 
 
 	@Autowired

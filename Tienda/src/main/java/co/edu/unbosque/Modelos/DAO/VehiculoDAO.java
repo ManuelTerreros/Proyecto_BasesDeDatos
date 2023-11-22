@@ -12,7 +12,7 @@ import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.VehiculoDTO;
 
 @Repository
-public class VahiculoDAO implements ICrud1<VehiculoDTO>{
+public class VehiculoDAO implements ICrud1<VehiculoDTO>{
 	@Autowired
     private JdbcTemplate jdbcTemplate;
 

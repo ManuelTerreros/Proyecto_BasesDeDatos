@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 import co.edu.unbosque.Modelos.DTO.AfiliadoDTO;
 import co.edu.unbosque.Modelos.DTO.Descuentos_afiliadosDTO;
 @Repository
-public class Descuentos_AfiliadosDAO implements ICrud<Descuentos_afiliadosDTO>{
+public class Descuento_AfiliadoDAO implements ICrud<Descuentos_afiliadosDTO>{
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
