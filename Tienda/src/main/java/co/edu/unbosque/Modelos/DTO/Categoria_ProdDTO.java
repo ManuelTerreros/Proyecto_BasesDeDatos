@@ -1,27 +1,28 @@
 package co.edu.unbosque.Modelos.DTO;
 
 public class Categoria_ProdDTO {
-	private long id_categoria;
-	private String descrip_categ;
+	private String  id_Categoria;
+	private String descrip_Categ;
 	public Categoria_ProdDTO() {
 		// TODO Auto-generated constructor stub
 	}
-	public Categoria_ProdDTO(long id_categoria, String descrip_categ) {
+	public Categoria_ProdDTO(String id_Categoria, String descrip_Categ) {
 		super();
-		this.id_categoria = id_categoria;
-		this.descrip_categ = descrip_categ;
+		this.id_Categoria = id_Categoria;
+		this.descrip_Categ = descrip_Categ;
 	}
-	public long getId_categoria() {
-		return id_categoria;
+	public String getId_Categoria() {
+		return id_Categoria;
 	}
-	public void setId_categoria(long id_categoria) {
-		this.id_categoria = id_categoria;
+	public void setId_Categoria(String id_Categoria) {
+		this.id_Categoria = id_Categoria;
 	}
-	public String getDescrip_categ() {
-		return descrip_categ;
+	public String getDescrip_Categ() {
+		return descrip_Categ;
 	}
-	public void setDescrip_categ(String descrip_categ) {
-		this.descrip_categ = descrip_categ;
+	public void setDescrip_Categ(String descrip_Categ) {
+		this.descrip_Categ = descrip_Categ;
 	}
+	
 	
 }

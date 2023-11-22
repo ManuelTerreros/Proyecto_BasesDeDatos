@@ -3,14 +3,14 @@ package co.edu.unbosque.Modelos.DTO;
 import java.sql.Date;
 
 public class EnvioDTO {
-	private long id_envio;
+	private String id_Envio;
 	private long id_Factura_Venta;
 	private String fecha_despacho;
 	private String fecha_entrega;
 	private String direccion_Entrega;
 	private long id_Sucursal;
 	private long id_Empleado;
-	private long id_Vehiculo;
+	private String id_Vehiculo;
 	
 	
 	public EnvioDTO() {
@@ -18,10 +18,10 @@ public class EnvioDTO {
 	}
 
 
-	public EnvioDTO(long id_envio, long id_Factura_Venta, String fecha_despacho, String fecha_entrega,
-			String direccion_Entrega, long id_Sucursal, long id_Empleado, long id_Vehiculo) {
+	public EnvioDTO(String id_Envio, long id_Factura_Venta, String fecha_despacho, String fecha_entrega,
+			String direccion_Entrega, long id_Sucursal, long id_Empleado, String id_Vehiculo) {
 		super();
-		this.id_envio = id_envio;
+		this.id_Envio = id_Envio;
 		this.id_Factura_Venta = id_Factura_Venta;
 		this.fecha_despacho = fecha_despacho;
 		this.fecha_entrega = fecha_entrega;
@@ -32,13 +32,13 @@ public class EnvioDTO {
 	}
 
 
-	public long getId_envio() {
-		return id_envio;
+	public String getId_Envio() {
+		return id_Envio;
 	}
 
 
-	public void setId_envio(long id_envio) {
-		this.id_envio = id_envio;
+	public void setId_Envio(String id_Envio) {
+		this.id_Envio = id_Envio;
 	}
 
 
@@ -102,13 +102,15 @@ public class EnvioDTO {
 	}
 
 
-	public long getId_Vehiculo() {
+	public String getId_Vehiculo() {
 		return id_Vehiculo;
 	}
 
 
-	public void setId_Vehiculo(long id_Vehiculo) {
+	public void setId_Vehiculo(String id_Vehiculo) {
 		this.id_Vehiculo = id_Vehiculo;
 	}
+
+
 	
 }
