@@ -3,7 +3,7 @@ package co.edu.unbosque.Modelos.DTO;
 public class Factura_ventaDTO {
 	
 	private long id_Factura_Venta;
-	private String id_Venta;
+	private long id_Venta;
 	private long id_Trabajador;
 	private long id_Cliente;
 	private String id_Envio;
@@ -14,8 +14,8 @@ public class Factura_ventaDTO {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Factura_ventaDTO(long id_Factura_Venta, String id_Venta, long id_Trabajador, long id_Cliente,
-			String id_Envio, String id_Forma_Pago, long id_Promocion_Afi) {
+	public Factura_ventaDTO(long id_Factura_Venta, long id_Venta, long id_Trabajador, long id_Cliente, String id_Envio,
+			String id_Forma_Pago, long id_Promocion_Afi) {
 		super();
 		this.id_Factura_Venta = id_Factura_Venta;
 		this.id_Venta = id_Venta;
@@ -34,11 +34,11 @@ public class Factura_ventaDTO {
 		this.id_Factura_Venta = id_Factura_Venta;
 	}
 
-	public String getId_Venta() {
+	public long getId_Venta() {
 		return id_Venta;
 	}
 
-	public void setId_Venta(String id_Venta) {
+	public void setId_Venta(long id_Venta) {
 		this.id_Venta = id_Venta;
 	}
 
@@ -81,5 +81,6 @@ public class Factura_ventaDTO {
 	public void setId_Promocion_Afi(long id_Promocion_Afi) {
 		this.id_Promocion_Afi = id_Promocion_Afi;
 	}
+
 	
 }
