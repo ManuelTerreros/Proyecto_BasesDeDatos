@@ -1,7 +1,5 @@
 package co.edu.unbosque.Modelos.DTO;
 
-import java.sql.Date;
-
 public class TrabajadorDTO {
 	
 	private Long id_Empleado;
