@@ -11,21 +11,24 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Forma_PagoDTO;
 
 @Repository
-public class Forma_Pago {
+public class Forma_Pago implements ICrud1<Forma_PagoDTO>{
 
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<Forma_PagoDTO>Listar() {
+	@Override
+	public List<Forma_PagoDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.forma_pago";
 		List<Forma_PagoDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(Forma_PagoDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(Forma_PagoDTO formaPagoDTO) {
 		String sql = "INSERT INTO Homecenter.forma_pago(id_pago,descrip_Pago)"
 				+ " VALUES(?,?)";
@@ -40,7 +43,7 @@ public class Forma_Pago {
         });
 	}
 	
-
+	@Override
 	public int borrar(String id_pago) {
 		String sql = "DELETE FROM Homecenter.forma_pago WHERE id_pago = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -50,7 +53,7 @@ public class Forma_Pago {
 	}
 
 
-
+	@Override
 	public int actualizar(Forma_PagoDTO formaPagoDTO) {
 		String sql = "UPDATE Homecenter.forma_pago SET descrip_Pago = ? WHERE id_pago = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -60,7 +63,8 @@ public class Forma_Pago {
             return preparedStatement.execute() ? 1 : 0; 
         });
 	}
-
+	
+	@Override
 	public Forma_PagoDTO buscarId(String id) {
 		String sql = "SELECT * FROM Homecenter.forma_pago WHERE id_pago = ?";
 		Forma_PagoDTO formaPagoDTO = jdbctemple1.queryForObject(sql, new Object[] {id},

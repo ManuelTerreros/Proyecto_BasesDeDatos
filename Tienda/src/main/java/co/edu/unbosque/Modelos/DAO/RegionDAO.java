@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.RegionDTO;
 
 @Repository
-public class RegionDAO {
+public class RegionDAO implements ICrud<RegionDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
+	 @Override
 	    public List<RegionDTO> listar() {
 	        String sql = "SELECT * FROM Homecenter.Region";
 	        List<RegionDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(RegionDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarRegion(RegionDTO regionDTO) {
+	 @Override
+	    public int guardar(RegionDTO regionDTO) {
 	        String sql = "INSERT INTO Homecenter.Region(id_Region, nom_Region)"
 	                + " VALUES(?,?)";
 
@@ -32,7 +35,8 @@ public class RegionDAO {
 	        });
 	    }
 
-	    public int actualizarRegion(RegionDTO regionDTO) {
+	 @Override
+	    public int actualizar(RegionDTO regionDTO) {
 	        String sql = "UPDATE Homecenter.Region SET nom_Region = ? WHERE id_Region = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, regionDTO.getNom_Region());
@@ -41,7 +45,8 @@ public class RegionDAO {
 	        });
 	    }
 
-	    public int borrarRegion(long idRegion) {
+	 @Override
+	    public int borrar(long idRegion) {
 	        String sql = "DELETE FROM Homecenter.Region WHERE id_Region = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idRegion);
@@ -49,7 +54,8 @@ public class RegionDAO {
 	        });
 	    }
 
-	    public RegionDTO buscarIdRegion(long idRegion) {
+	 @Override
+	    public RegionDTO buscarId(long idRegion) {
 	        String sql = "SELECT * FROM Homecenter.Region WHERE id_Region = ?";
 	        RegionDTO regionDTO = jdbcTemplate.queryForObject(sql, new Object[]{idRegion},
 	                BeanPropertyRowMapper.newInstance(RegionDTO.class));

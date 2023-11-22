@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.TrabajadorDTO;
 
 @Repository
-public class TrabajadorDAO {
+public class TrabajadorDAO implements ICrud<TrabajadorDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
+	 @Override
 	    public List<TrabajadorDTO> listar() {
 	        String sql = "SELECT * FROM Homecenter.trabajador";
 	        List<TrabajadorDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(TrabajadorDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarTrabajador(TrabajadorDTO trabajadorDTO) {
+	 @Override
+	    public int guardar(TrabajadorDTO trabajadorDTO) {
 	        String sql = "INSERT INTO Homecenter.trabajador(id_Empleado, tipo_Doc, primer_Nom, primer_Apellido, fecha_Contratacion, id_Depto, id_Cargo, id_Sucursal)"
 	                + " VALUES(?,?,?,?,?,?,?,?)";
 
@@ -38,6 +41,7 @@ public class TrabajadorDAO {
 	        });
 	    }
 
+	 @Override
 	    public int actualizar(TrabajadorDTO trabajadorDTO) {
 	        String sql = "UPDATE Homecenter.trabajador SET tipo_Doc = ?, primer_Nom = ?, primer_Apellido = ?, fecha_Contratacion = ?, id_Depto = ?, id_Cargo = ?, id_Sucursal = ? WHERE id_Empleado = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -54,7 +58,8 @@ public class TrabajadorDAO {
 	        });
 	    }
 
-	    public int borrar(Long idEmpleado) {
+	 @Override
+	    public int borrar(long idEmpleado) {
 	        String sql = "DELETE FROM Homecenter.trabajador WHERE id_Empleado = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idEmpleado);
@@ -62,7 +67,8 @@ public class TrabajadorDAO {
 	        });
 	    }
 
-	    public TrabajadorDTO buscarPorId(Long idEmpleado) {
+	 @Override
+	    public TrabajadorDTO buscarId(long idEmpleado) {
 	        String sql = "SELECT * FROM Homecenter.trabajador WHERE id_Empleado = ?";
 	        TrabajadorDTO trabajadorDTO = jdbcTemplate.queryForObject(sql, new Object[]{idEmpleado},
 	                BeanPropertyRowMapper.newInstance(TrabajadorDTO.class));

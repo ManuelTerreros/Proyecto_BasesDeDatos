@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Ubicacion_SucursalDTO;
 
 @Repository
-public class Ubicacion_SucursalDAO {
+public class Ubicacion_SucursalDAO implements ICrud<Ubicacion_SucursalDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate1;
 
+	 @Override
 	    public List<Ubicacion_SucursalDTO> listar() {
 	        String sql = "SELECT * FROM Homecenter.Ubicacion_Sucursal";
 	        List<Ubicacion_SucursalDTO> lista = jdbcTemplate1.query(sql, BeanPropertyRowMapper.newInstance(Ubicacion_SucursalDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarUbicacion_Sucursal(Ubicacion_SucursalDTO ubicacion_SucursalDTO) {
+	    @Override
+	    public int guardar(Ubicacion_SucursalDTO ubicacion_SucursalDTO) {
 	        String sql = "INSERT INTO Homecenter.Ubicacion_Sucursal(id_Sucursal, num_Empleados, ciudad, direccion, id_Pais)"
 	                + " VALUES(?,?,?,?,?)";
 
@@ -35,6 +38,7 @@ public class Ubicacion_SucursalDAO {
 	        });
 	    }
 
+	    @Override
 	    public int actualizar(Ubicacion_SucursalDTO ubicacion_SucursalDTO) {
 	        String sql = "UPDATE Homecenter.Ubicacion_Sucursal SET num_Empleados = ?, ciudad = ?, direccion = ?, id_Pais = ? WHERE id_Sucursal = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -48,6 +52,7 @@ public class Ubicacion_SucursalDAO {
 	        });
 	    }
 
+	    @Override
 	    public int borrar(long idSucursal) {
 	        String sql = "DELETE FROM Homecenter.Ubicacion_Sucursal WHERE idSucursal = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -56,6 +61,7 @@ public class Ubicacion_SucursalDAO {
 	        });
 	    }
 
+	    @Override
 	    public Ubicacion_SucursalDTO buscarId(long idSucursal) {
 	        String sql = "SELECT * FROM Homecenter.Ubicacion_Sucursal WHERE idSucursal = ?";
 	        Ubicacion_SucursalDTO ubicacion_SucursalDTO = jdbcTemplate1.queryForObject(sql, new Object[]{idSucursal},

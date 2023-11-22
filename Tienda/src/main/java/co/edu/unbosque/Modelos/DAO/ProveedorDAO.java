@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.ProveedorDTO;
 
 @Repository
-public class ProveedorDAO {
+public class ProveedorDAO implements ICrud<ProveedorDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate1;
 
+	 @Override
 	    public List<ProveedorDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.proveedor";
 	        List<ProveedorDTO> lista = jdbcTemplate1.query(sql, BeanPropertyRowMapper.newInstance(ProveedorDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarProveedor(ProveedorDTO proveedorDTO) {
+	 @Override
+	    public int guardar(ProveedorDTO proveedorDTO) {
 	        String sql = "INSERT INTO Homecenter.proveedor(id_Proveedor, razon_Social, fecha_Contratacion, id_Categoria, ultima_Transaccion)"
 	                + " VALUES(?,?,?,?,?)";
 
@@ -35,6 +38,7 @@ public class ProveedorDAO {
 	        });
 	    }
 
+	 @Override
 	    public int actualizar(ProveedorDTO proveedorDTO) {
 	        String sql = "UPDATE Homecenter.proveedor SET razon_Social = ?, fecha_Contratacion = ?, id_Categoria = ?, ultima_Transaccion = ? WHERE id_Proveedor = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -48,7 +52,8 @@ public class ProveedorDAO {
 	        });
 	    }
 
-	    public int borrar(Long idProveedor) {
+	 @Override
+	    public int borrar(long idProveedor) {
 	        String sql = "DELETE FROM Homecenter.proveedor WHERE id_Proveedor = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idProveedor);
@@ -56,7 +61,8 @@ public class ProveedorDAO {
 	        });
 	    }
 
-	    public ProveedorDTO buscarId(Long idProveedor) {
+	 @Override
+	    public ProveedorDTO buscarId(long idProveedor) {
 	        String sql = "SELECT * FROM Homecenter.proveedor WHERE id_Proveedor = ?";
 	        ProveedorDTO proveedorDTO = jdbcTemplate1.queryForObject(sql, new Object[] {idProveedor},
 	                BeanPropertyRowMapper.newInstance(ProveedorDTO.class));

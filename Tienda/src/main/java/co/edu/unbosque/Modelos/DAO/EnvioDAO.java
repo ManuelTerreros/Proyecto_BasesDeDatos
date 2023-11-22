@@ -10,18 +10,21 @@ import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.EnvioDTO;
 
-public class EnvioDAO {
+public class EnvioDAO implements ICrud1<EnvioDTO>{
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<EnvioDTO>Listar() {
+	@Override
+	public List<EnvioDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.envio";
 		List<EnvioDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(EnvioDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(EnvioDTO envioDTO) {
 		String sql = "INSERT INTO Homecenter.envio(id_Envio,id_Factura_Venta,fecha_despacho,fecha_entrega,direccion_Entrega,id_Sucursal,id_Empleado,id_Vehiculo)"
 				+ " VALUES(?,?,?,?,?,?,?,?)";
@@ -42,7 +45,7 @@ public class EnvioDAO {
         });
 	}
 	
-
+	@Override
 	public int borrar(String id_Envio) {
 		String sql = "DELETE FROM Homecenter.envio WHERE id_Envio = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -52,7 +55,7 @@ public class EnvioDAO {
 	}
 
 
-
+	@Override
 	public int actualizar(EnvioDTO envioDTO) {
 		String sql = "UPDATE Homecenter.envio SET id_Factura_Venta = ?, fecha_despacho = ?, fecha_entrega = ?, direccion_Entrega = ?, id_Sucursal = ?, id_Empleado = ?, id_Vehiculo = ? WHERE id_Envio = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -69,6 +72,7 @@ public class EnvioDAO {
         });
 	}
 
+	@Override
 	public EnvioDTO buscarId(String id) {
 		String sql = "SELECT * FROM Homecenter.envio WHERE id_Envio = ?";
 		EnvioDTO envioDTO = jdbctemple1.queryForObject(sql, new Object[] {id},

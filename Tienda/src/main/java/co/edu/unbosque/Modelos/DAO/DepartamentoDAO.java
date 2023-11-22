@@ -11,19 +11,22 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.DepartamentoDTO;
 
 @Repository
-public class DepartamentoDAO {
+public class DepartamentoDAO implements ICrud<DepartamentoDTO>{
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<DepartamentoDTO>Listar() {
+	@Override
+	public List<DepartamentoDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.departamento";
 		List<DepartamentoDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(DepartamentoDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(DepartamentoDTO departamentoDTO) {
 		String sql = "INSERT INTO Homecenter.departamento(id_Depto,nombre_Depto,telefono,id_Gerente)"
 				+ " VALUES(?,?,?,?)";
@@ -40,7 +43,7 @@ public class DepartamentoDAO {
         });
 	}
 	
-
+	@Override
 	public int borrar(long id_Depto) {
 		String sql = "DELETE FROM Homecenter.departamento WHERE id_Depto = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -50,7 +53,7 @@ public class DepartamentoDAO {
 	}
 
 
-
+	@Override
 	public int actualizar(DepartamentoDTO departamentoDTO) {
 		String sql = "UPDATE Homecenter.departamento SET nombre_Depto = ?, telefono = ?, id_Gerente = ? WHERE id_Depto = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -62,6 +65,7 @@ public class DepartamentoDAO {
         });
 	}
 
+	@Override
 	public DepartamentoDTO buscarId(long id) {
 		String sql = "SELECT * FROM Homecenter.departamento WHERE id_Depto = ?";
 		DepartamentoDTO departamentoDTO = jdbctemple1.queryForObject(sql, new Object[] {id},

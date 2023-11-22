@@ -11,20 +11,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Factura_CompraDTO;
 
 @Repository
-public class Factura_CompraDAO {
+public class Factura_CompraDAO implements ICrud<Factura_CompraDTO>{
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<Factura_CompraDTO>Listar() {
+	@Override
+	public List<Factura_CompraDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.factura_compra";
 		List<Factura_CompraDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(Factura_CompraDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(Factura_CompraDTO facturaCompraDTO) {
 		String sql = "INSERT INTO Homecenter.factura_compra(id_Compra,cantidad,precio_Lote,iva,total,id_Proveedor,fecha_Compra)"
 				+ " VALUES(?,?,?,?,?,?,?)";
@@ -44,7 +47,7 @@ public class Factura_CompraDAO {
         });
 	}
 	
-
+	@Override
 	public int borrar(long id_Compra) {
 		String sql = "DELETE FROM Homecenter.factura_compra WHERE id_Compra = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -54,7 +57,7 @@ public class Factura_CompraDAO {
 	}
 
 
-
+	@Override
 	public int actualizar(Factura_CompraDTO facturaCompraDTO) {
 		String sql = "UPDATE Homecenter.factura_compra SET cantidad = ?, precio_Lote = ?, iva = ?, total = ?, id_Proveedor = ?, fecha_Compra = ? WHERE id_Compra = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -70,6 +73,7 @@ public class Factura_CompraDAO {
         });
 	}
 
+	@Override
 	public Factura_CompraDTO buscarId(long id) {
 		String sql = "SELECT * FROM Homecenter.factura_compra WHERE id_Compra = ?";
 		Factura_CompraDTO facturaCompraDTO = jdbctemple1.queryForObject(sql, new Object[] {id},

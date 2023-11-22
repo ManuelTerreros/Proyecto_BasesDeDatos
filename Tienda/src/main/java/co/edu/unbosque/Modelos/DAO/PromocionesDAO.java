@@ -8,20 +8,24 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.PromocionesDTO;
 
 @Repository
-public class PromocionesDAO {
+public class PromocionesDAO implements ICrud<PromocionesDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
-	    public List<PromocionesDTO> listarPromociones() {
+	 
+	 @Override
+	    public List<PromocionesDTO> listar() {
 	        String sql = "SELECT * FROM Homecenter.promociones";
 	        List<PromocionesDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(PromocionesDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarPromocion(PromocionesDTO promocionesDTO) {
+	 @Override
+	    public int guardar(PromocionesDTO promocionesDTO) {
 	        String sql = "INSERT INTO Homecenter.promociones(id_Promocion, descriP_Prom, fecha_Inicial, fecha_Final, condiciones_Promocion)"
 	                + " VALUES(?,?,?,?,?)";
 
@@ -35,7 +39,8 @@ public class PromocionesDAO {
 	        });
 	    }
 
-	    public int actualizarPromocion(PromocionesDTO promocionesDTO) {
+	 @Override
+	    public int actualizar(PromocionesDTO promocionesDTO) {
 	        String sql = "UPDATE Homecenter.promociones SET descriP_Prom = ?, fecha_Inicial = ?, fecha_Final = ?, condiciones_Promocion = ?"
 	                + " WHERE id_Promocion = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -49,7 +54,8 @@ public class PromocionesDAO {
 	        });
 	    }
 
-	    public int borrarPromocion(long idPromocion) {
+	 @Override
+	    public int borrar(long idPromocion) {
 	        String sql = "DELETE FROM Homecenter.promociones WHERE idPromocion = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idPromocion);
@@ -57,7 +63,8 @@ public class PromocionesDAO {
 	        });
 	    }
 
-	    public PromocionesDTO buscarPromocionPorId(long idPromocion) {
+	 @Override
+	    public PromocionesDTO buscarId(long idPromocion) {
 	        String sql = "SELECT * FROM Homecenter.promociones WHERE idPromocion = ?";
 	        PromocionesDTO promocionesDTO = jdbcTemplate.queryForObject(sql, new Object[]{idPromocion},
 	                BeanPropertyRowMapper.newInstance(PromocionesDTO.class));

@@ -11,20 +11,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Detalle_CompraDTO;
 
 @Repository
-public class Detalle_CompraDAO {
+public class Detalle_CompraDAO implements ICrud1<Detalle_CompraDTO>{
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<Detalle_CompraDTO>Listar() {
+	@Override
+	public List<Detalle_CompraDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.detalle_compra";
 		List<Detalle_CompraDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(Detalle_CompraDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(Detalle_CompraDTO detalleCompraDTO) {
 		String sql = "INSERT INTO Homecenter.detalle_compra(id_Compra,id_lote)"
 				+ " VALUES(?,?)";
@@ -39,7 +42,7 @@ public class Detalle_CompraDAO {
         });
 	}
 	
-
+	@Override
 	public int borrar(String id_Compra) {
 		String sql = "DELETE FROM Homecenter.detalle_compra WHERE id_Compra = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -49,7 +52,7 @@ public class Detalle_CompraDAO {
 	}
 
 
-
+	@Override
 	public int actualizar(Detalle_CompraDTO detalleCompraDTO) {
 		String sql = "UPDATE Homecenter.detalle_compra SET id_lote = ? WHERE id_Compra = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -59,6 +62,7 @@ public class Detalle_CompraDAO {
         });
 	}
 
+	@Override
 	public Detalle_CompraDTO buscarId(String id) {
 		String sql = "SELECT * FROM Homecenter.detalle_compra WHERE id_Compra = ?";
 		Detalle_CompraDTO detalleCompraDTO = jdbctemple1.queryForObject(sql, new Object[] {id},

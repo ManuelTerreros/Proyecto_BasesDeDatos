@@ -8,20 +8,23 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.InventarioDTO;
 
 @Repository
-public class InventarioDAO {
+public class InventarioDAO implements ICrud1<InventarioDTO>{
 	   @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
+	   @Override
 	    public List<InventarioDTO> listar() {
 	        String sql = "SELECT * FROM HomeCenter.inventario";
 	        List<InventarioDTO> lista = jdbcTemplate.query(sql, BeanPropertyRowMapper.newInstance(InventarioDTO.class));
 	        return lista;
 	    }
 
-	    public int guardarInventario(InventarioDTO inventarioDTO) {
+	   @Override
+	    public int guardar(InventarioDTO inventarioDTO) {
 	        String sql = "INSERT INTO Homecenter.inventario(id_Inventario, id_Producto, costo_Producto, cantidad_Inventario, costo_Toltal_Inv)"
 	                + " VALUES(?,?,?,?,?)";
 
@@ -35,6 +38,7 @@ public class InventarioDAO {
 	        });
 	    }
 
+	   @Override
 	    public int actualizar(InventarioDTO inventarioDTO) {
 	        String sql = "UPDATE Homecenter.inventario SET id_Producto = ?, costo_Producto = ?, cantidad_Inventario = ?, costo_Toltal_Inv = ? WHERE id_Inventario = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -48,6 +52,7 @@ public class InventarioDAO {
 	        });
 	    }
 
+	   @Override
 	    public int borrar(String idInventario) {
 	        String sql = "DELETE FROM Homecenter.inventario WHERE idInventario = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -56,6 +61,7 @@ public class InventarioDAO {
 	        });
 	    }
 
+	    @Override
 	    public InventarioDTO buscarId(String idInventario) {
 	        String sql = "SELECT * FROM Homecenter.inventario WHERE idInventario = ?";
 	        InventarioDTO inventarioDTO = jdbcTemplate.queryForObject(sql, new Object[] {idInventario},

@@ -11,21 +11,24 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
 import org.springframework.stereotype.Repository;
 
+import co.edu.unbosque.Modelos.DTO.AfiliadoDTO;
 import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 
 
 @Repository
-public class Categoria_ProveedorDao {
+public class Categoria_ProveedorDao implements ICrud1<Categoria_ProveedorDTO>{
 
 	@Autowired
 	private JdbcTemplate jdbctemple1;
 	
-	public List<Categoria_ProveedorDTO>Listar() {
+	@Override
+	public List<Categoria_ProveedorDTO>listar() {
 		String sql = "SELECT * FROM HomeCenter.categoria_proveedor";
 		List<Categoria_ProveedorDTO> lista = jdbctemple1.query(sql, BeanPropertyRowMapper.newInstance(Categoria_ProveedorDTO.class));
 		return lista;
 	}
 
+	@Override
 	public int guardar(Categoria_ProveedorDTO categoriaProveedorDTO) {
 		String sql = "INSERT INTO Homecenter.categoria_proveedor(id_Categoria_Proveedor,descripcion_Categ)"
 				+ " VALUES(?,?)";
@@ -41,7 +44,7 @@ public class Categoria_ProveedorDao {
         });
 	}
 	
-
+	@Override
 	public int borrar(String id_Categoria_Proveedor) {
 		String sql = "DELETE FROM Homecenter.categoria_proveedor WHERE id_Categoria_Proveedor = ?";
         return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
@@ -51,7 +54,7 @@ public class Categoria_ProveedorDao {
 	}
 
 
-
+	@Override
 	public int actualizar(Categoria_ProveedorDTO categoriaProveedorDTO) {
 		String sql = "UPDATE Homecenter.categoria_proveedor SET descripcion_Categ = ? WHERE id_Categoria_Proveedor = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -61,6 +64,7 @@ public class Categoria_ProveedorDao {
         });
 	}
 
+	@Override
 	public Categoria_ProveedorDTO buscarId(String id) {
 		String sql = "SELECT * FROM Homecenter.categoria_proveedor WHERE id_Categoria_Proveedor = ?";
 		Categoria_ProveedorDTO categoriaProveedorDTO = jdbctemple1.queryForObject(sql, new Object[] {id},
