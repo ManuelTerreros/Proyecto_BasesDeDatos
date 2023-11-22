@@ -2,11 +2,11 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class Ubicacion_Sucursal {
 	
-	private int id_Sucursal;
-	private int num_Empleados;
-	private String id_pais;
-	private String Ciudad;
+	private long id_Sucursal;
+	private long num_Empleados;
+	private String ciudad;
 	private String direccion;
+	private String id_Pais;
 	
 	
 	public Ubicacion_Sucursal() {
@@ -14,53 +14,43 @@ public class Ubicacion_Sucursal {
 	}
 
 
-	public Ubicacion_Sucursal(int id_Sucursal, int num_Empleados, String id_pais, String ciudad, String direccion) {
+	public Ubicacion_Sucursal(long id_Sucursal, long num_Empleados, String ciudad, String direccion, String id_Pais) {
 		super();
 		this.id_Sucursal = id_Sucursal;
 		this.num_Empleados = num_Empleados;
-		this.id_pais = id_pais;
-		Ciudad = ciudad;
+		this.ciudad = ciudad;
 		this.direccion = direccion;
+		this.id_Pais = id_Pais;
 	}
 
 
-	public int getId_Sucursal() {
+	public long getId_Sucursal() {
 		return id_Sucursal;
 	}
 
 
-	public void setId_Sucursal(int id_Sucursal) {
+	public void setId_Sucursal(long id_Sucursal) {
 		this.id_Sucursal = id_Sucursal;
 	}
 
 
-	public int getNum_Empleados() {
+	public long getNum_Empleados() {
 		return num_Empleados;
 	}
 
 
-	public void setNum_Empleados(int num_Empleados) {
+	public void setNum_Empleados(long num_Empleados) {
 		this.num_Empleados = num_Empleados;
 	}
 
 
-	public String getId_pais() {
-		return id_pais;
-	}
-
-
-	public void setId_pais(String id_pais) {
-		this.id_pais = id_pais;
-	}
-
-
 	public String getCiudad() {
-		return Ciudad;
+		return ciudad;
 	}
 
 
 	public void setCiudad(String ciudad) {
-		Ciudad = ciudad;
+		this.ciudad = ciudad;
 	}
 
 
@@ -73,6 +63,14 @@ public class Ubicacion_Sucursal {
 		this.direccion = direccion;
 	}
 
-	
-	
+
+	public String getId_Pais() {
+		return id_Pais;
+	}
+
+
+	public void setId_Pais(String id_Pais) {
+		this.id_Pais = id_Pais;
+	}
+
 }

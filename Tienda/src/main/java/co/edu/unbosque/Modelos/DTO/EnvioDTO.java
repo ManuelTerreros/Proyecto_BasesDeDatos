@@ -3,91 +3,112 @@ package co.edu.unbosque.Modelos.DTO;
 import java.sql.Date;
 
 public class EnvioDTO {
-	private int id_venta, id_Empleado, id_Sucursal ;
-	private String id_Envio, dir_Entrega, id_Vehiculo;
-	private Date fecha_entrega, fecha_despacho ;
+	private long id_envio;
+	private long id_Factura_Venta;
+	private String fecha_despacho;
+	private String fecha_entrega;
+	private String direccion_Entrega;
+	private long id_Sucursal;
+	private long id_Empleado;
+	private long id_Vehiculo;
+	
 	
 	public EnvioDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public EnvioDTO(int id_venta, int id_Empleado, int id_Sucursal, String id_Envio, String dir_Entrega,
-			String id_Vehiculo, Date fecha_entrega, Date fecha_despacho) {
+
+	public EnvioDTO(long id_envio, long id_Factura_Venta, String fecha_despacho, String fecha_entrega,
+			String direccion_Entrega, long id_Sucursal, long id_Empleado, long id_Vehiculo) {
 		super();
-		this.id_venta = id_venta;
-		this.id_Empleado = id_Empleado;
-		this.id_Sucursal = id_Sucursal;
-		this.id_Envio = id_Envio;
-		this.dir_Entrega = dir_Entrega;
-		this.id_Vehiculo = id_Vehiculo;
-		this.fecha_entrega = fecha_entrega;
+		this.id_envio = id_envio;
+		this.id_Factura_Venta = id_Factura_Venta;
 		this.fecha_despacho = fecha_despacho;
-	}
-
-	public int getId_venta() {
-		return id_venta;
-	}
-
-	public void setId_venta(int id_venta) {
-		this.id_venta = id_venta;
-	}
-
-	public int getId_Empleado() {
-		return id_Empleado;
-	}
-
-	public void setId_Empleado(int id_Empleado) {
-		this.id_Empleado = id_Empleado;
-	}
-
-	public int getId_Sucursal() {
-		return id_Sucursal;
-	}
-
-	public void setId_Sucursal(int id_Sucursal) {
+		this.fecha_entrega = fecha_entrega;
+		this.direccion_Entrega = direccion_Entrega;
 		this.id_Sucursal = id_Sucursal;
-	}
-
-	public String getId_Envio() {
-		return id_Envio;
-	}
-
-	public void setId_Envio(String id_Envio) {
-		this.id_Envio = id_Envio;
-	}
-
-	public String getDir_Entrega() {
-		return dir_Entrega;
-	}
-
-	public void setDir_Entrega(String dir_Entrega) {
-		this.dir_Entrega = dir_Entrega;
-	}
-
-	public String getId_Vehiculo() {
-		return id_Vehiculo;
-	}
-
-	public void setId_Vehiculo(String id_Vehiculo) {
+		this.id_Empleado = id_Empleado;
 		this.id_Vehiculo = id_Vehiculo;
 	}
 
-	public Date getFecha_entrega() {
-		return fecha_entrega;
+
+	public long getId_envio() {
+		return id_envio;
 	}
 
-	public void setFecha_entrega(Date fecha_entrega) {
-		this.fecha_entrega = fecha_entrega;
+
+	public void setId_envio(long id_envio) {
+		this.id_envio = id_envio;
 	}
 
-	public Date getFecha_despacho() {
+
+	public long getId_Factura_Venta() {
+		return id_Factura_Venta;
+	}
+
+
+	public void setId_Factura_Venta(long id_Factura_Venta) {
+		this.id_Factura_Venta = id_Factura_Venta;
+	}
+
+
+	public String getFecha_despacho() {
 		return fecha_despacho;
 	}
 
-	public void setFecha_despacho(Date fecha_despacho) {
+
+	public void setFecha_despacho(String fecha_despacho) {
 		this.fecha_despacho = fecha_despacho;
 	}
-	
-	
+
+
+	public String getFecha_entrega() {
+		return fecha_entrega;
+	}
+
+
+	public void setFecha_entrega(String fecha_entrega) {
+		this.fecha_entrega = fecha_entrega;
+	}
+
+
+	public String getDireccion_Entrega() {
+		return direccion_Entrega;
+	}
+
+
+	public void setDireccion_Entrega(String direccion_Entrega) {
+		this.direccion_Entrega = direccion_Entrega;
+	}
+
+
+	public long getId_Sucursal() {
+		return id_Sucursal;
+	}
+
+
+	public void setId_Sucursal(long id_Sucursal) {
+		this.id_Sucursal = id_Sucursal;
+	}
+
+
+	public long getId_Empleado() {
+		return id_Empleado;
+	}
+
+
+	public void setId_Empleado(long id_Empleado) {
+		this.id_Empleado = id_Empleado;
+	}
+
+
+	public long getId_Vehiculo() {
+		return id_Vehiculo;
+	}
+
+
+	public void setId_Vehiculo(long id_Vehiculo) {
+		this.id_Vehiculo = id_Vehiculo;
+	}
 	
 }

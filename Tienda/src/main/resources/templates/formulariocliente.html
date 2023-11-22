@@ -16,19 +16,19 @@
                 <form th:action="@{/guardar}" th:object="${clienteDTO}" method="post">
                  
                  <label>Cedula</label>
-                 <input type="text" th:field="*{idclientes}" class="form-control">
+                 <input type="text" th:field="*{id_Cliente}" class="form-control">
                  <br>
                  <label>Tipo de Documento</label>
-                 <input type="text" th:field="*{tipodoc}" class="form-control">
+                 <input type="text" th:field="*{tipo_Doc}" class="form-control">
                  
                  <label>Nombres</label>
-                 <input type="text" th:field="*{nombres}" class="form-control">
+                 <input type="text" th:field="*{primer_Nom}" class="form-control">
                  
                  <label>Apellidos</label>
-                 <input type="text" th:field="*{apellidos}" class="form-control">
+                 <input type="text" th:field="*{primer_Apellido}" class="form-control">
                  
                  <label>Fecha de registro</label>
-                 <input type="text" th:field="*{fecharegistro}" class="form-control">
+                 <input type="text" th:field="*{fecha_Registro}" class="form-control">
                  
                  <label>Telefono</label>
                  <input type="text" th:field="*{telefono}" class="form-control" pattern="[0-9]+">
@@ -40,7 +40,7 @@
                  <input type="text" th:field="*{direccion}" class="form-control">
                  
                  <label>No Afiliado</label>
-                 <input type="text" th:field="*{idafiliado}" class="form-control">
+                 <input type="text" th:field="*{id_Afiliado}" class="form-control">
                  
                   <input type="submit" value="Registrar" class="btn btn-danger">
                 </form>

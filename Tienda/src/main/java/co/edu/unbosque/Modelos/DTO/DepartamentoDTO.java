@@ -2,29 +2,29 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class DepartamentoDTO {
 	
-	private int id_Departamento;
+	private long id_Depto;
 	private String nombre_Depto;
-	private int telefono;
-	private int id_gerente;
+	private long telefono;
+	private long id_Gerente;
 	
 	public DepartamentoDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public DepartamentoDTO(int id_Departamento, String nombre_Depto, int telefono, int id_gerente) {
+	public DepartamentoDTO(long id_Depto, String nombre_Depto, long telefono, long id_Gerente) {
 		super();
-		this.id_Departamento = id_Departamento;
+		this.id_Depto = id_Depto;
 		this.nombre_Depto = nombre_Depto;
 		this.telefono = telefono;
-		this.id_gerente = id_gerente;
+		this.id_Gerente = id_Gerente;
 	}
 
-	public int getId_Departamento() {
-		return id_Departamento;
+	public long getId_Depto() {
+		return id_Depto;
 	}
 
-	public void setId_Departamento(int id_Departamento) {
-		this.id_Departamento = id_Departamento;
+	public void setId_Depto(long id_Depto) {
+		this.id_Depto = id_Depto;
 	}
 
 	public String getNombre_Depto() {
@@ -35,21 +35,22 @@ public class DepartamentoDTO {
 		this.nombre_Depto = nombre_Depto;
 	}
 
-	public int getTelefono() {
+	public long getTelefono() {
 		return telefono;
 	}
 
-	public void setTelefono(int telefono) {
+	public void setTelefono(long telefono) {
 		this.telefono = telefono;
 	}
 
-	public int getId_gerente() {
-		return id_gerente;
+	public long getId_Gerente() {
+		return id_Gerente;
 	}
 
-	public void setId_gerente(int id_gerente) {
-		this.id_gerente = id_gerente;
+	public void setId_Gerente(long id_Gerente) {
+		this.id_Gerente = id_Gerente;
 	}
+	
 	
 	
 
