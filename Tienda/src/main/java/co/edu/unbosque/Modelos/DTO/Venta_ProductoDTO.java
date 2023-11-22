@@ -2,61 +2,55 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class Venta_ProductoDTO {
 	
-	private String id_venta;
-	private int id_Producto;
-	private int cantidad;
-	private int precio_Total;
+	private long id_Venta;
+	private long id_Producto;
+	private long cantidad;
+	private long precio_Total;
 	
 	public Venta_ProductoDTO() {
 	
 	}
-	
-	
-	
-	public Venta_ProductoDTO(String id_venta, int id_Producto, int cantidad, int precio_Total) {
+
+	public Venta_ProductoDTO(long id_Venta, long id_Producto, long cantidad, long precio_Total) {
 		super();
-		this.id_venta = id_venta;
+		this.id_Venta = id_Venta;
 		this.id_Producto = id_Producto;
 		this.cantidad = cantidad;
 		this.precio_Total = precio_Total;
 	}
 
-	
-
-	public String getId_venta() {
-		return id_venta;
+	public long getId_Venta() {
+		return id_Venta;
 	}
 
-
-
-	public void setId_venta(String id_venta) {
-		this.id_venta = id_venta;
+	public void setId_Venta(long id_Venta) {
+		this.id_Venta = id_Venta;
 	}
 
-
-
-	public int getId_Producto() {
+	public long getId_Producto() {
 		return id_Producto;
 	}
 
-	public void setId_Producto(int id_Producto) {
+	public void setId_Producto(long id_Producto) {
 		this.id_Producto = id_Producto;
 	}
 
-	public int getCantidad() {
+	public long getCantidad() {
 		return cantidad;
 	}
 
-	public void setCantidad(int cantidad) {
+	public void setCantidad(long cantidad) {
 		this.cantidad = cantidad;
 	}
 
-	public int getPrecio_Total() {
+	public long getPrecio_Total() {
 		return precio_Total;
 	}
 
-	public void setPrecio_Total(int precio_Total) {
+	public void setPrecio_Total(long precio_Total) {
 		this.precio_Total = precio_Total;
 	}
-
+	
+	
+	
 }

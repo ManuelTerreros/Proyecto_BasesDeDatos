@@ -26,18 +26,18 @@
 		</thead>
 		<tbody>
 		   <tr th:each="clienteDTO: ${listaclientes}">
-		       <td th:text="${clienteDTO.idclientes}" ></td>
-		       <td th:text="${clienteDTO.tipodoc}" ></td>
-		       <td th:text="${clienteDTO.nombres}" ></td>
-		       <td th:text="${clienteDTO.apellidos}" ></td>
-		       <td th:text="${clienteDTO.fecharegistro}" ></td>
+		       <td th:text="${clienteDTO.id_Cliente}" ></td>
+		       <td th:text="${clienteDTO.tipo_Doc}" ></td>
+		       <td th:text="${clienteDTO.primer_Nom}" ></td>
+		       <td th:text="${clienteDTO.primer_Apellido}" ></td>
+		       <td th:text="${clienteDTO.fecha_Registro}" ></td>
 		       <td th:text="${clienteDTO.telefono}" ></td>
 		        <td th:text="${clienteDTO.ciudad}" ></td>
 		       <td th:text="${clienteDTO.direccion}" ></td>
-		       <td th:text="${clienteDTO.idafiliado}" ></td>
+		       <td th:text="${clienteDTO.id_Afiliado}" ></td>
 		       <td>
-		         <a th:href="@{/editar/{id}(id=${clienteDTO.idclientes})}" class="btn btn-warning">Editar</a>
-		         <a th:href="@{/borrar/{id}(id=${clienteDTO.idclientes})}" class="btn btn-danger">Borrar</a>
+		         <a th:href="@{/editar/{id}(id=${clienteDTO.id_Cliente})}" class="btn btn-warning">Editar</a>
+		         <a th:href="@{/borrar/{id}(id=${clienteDTO.id_Cliente})}" class="btn btn-danger">Borrar</a>
 		       </td>
 		   </tr>
 		</tbody>

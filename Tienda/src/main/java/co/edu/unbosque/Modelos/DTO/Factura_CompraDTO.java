@@ -2,20 +2,20 @@ package co.edu.unbosque.Modelos.DTO;
 
 public class Factura_CompraDTO {
 	
-	private int id_Compra;
+	private long id_Compra;
 	private int cantidad;
-	private int precio_Lote;
-	private int iva;
-	private int total;
-	private int id_Proveedor;
-	private int id_Producto;
+	private long precio_Lote;
+	private float iva;
+	private long total;
+	private long id_Proveedor;
+	private String fecha_Compra;
 	
 	public Factura_CompraDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Factura_CompraDTO(int id_Compra, int cantidad, int precio_Lote, int iva, int total, int id_Proveedor,
-			int id_Producto) {
+	public Factura_CompraDTO(long id_Compra, int cantidad, long precio_Lote, float iva, long total, long id_Proveedor,
+			String fecha_Compra) {
 		super();
 		this.id_Compra = id_Compra;
 		this.cantidad = cantidad;
@@ -23,14 +23,14 @@ public class Factura_CompraDTO {
 		this.iva = iva;
 		this.total = total;
 		this.id_Proveedor = id_Proveedor;
-		this.id_Producto = id_Producto;
+		this.fecha_Compra = fecha_Compra;
 	}
 
-	public int getId_Compra() {
+	public long getId_Compra() {
 		return id_Compra;
 	}
 
-	public void setId_Compra(int id_Compra) {
+	public void setId_Compra(long id_Compra) {
 		this.id_Compra = id_Compra;
 	}
 
@@ -42,46 +42,44 @@ public class Factura_CompraDTO {
 		this.cantidad = cantidad;
 	}
 
-	public int getPrecio_Lote() {
+	public long getPrecio_Lote() {
 		return precio_Lote;
 	}
 
-	public void setPrecio_Lote(int precio_Lote) {
+	public void setPrecio_Lote(long precio_Lote) {
 		this.precio_Lote = precio_Lote;
 	}
 
-	public int getIva() {
+	public float getIva() {
 		return iva;
 	}
 
-	public void setIva(int iva) {
+	public void setIva(float iva) {
 		this.iva = iva;
 	}
 
-	public int getTotal() {
+	public long getTotal() {
 		return total;
 	}
 
-	public void setTotal(int total) {
+	public void setTotal(long total) {
 		this.total = total;
 	}
 
-	public int getId_Proveedor() {
+	public long getId_Proveedor() {
 		return id_Proveedor;
 	}
 
-	public void setId_Proveedor(int id_Proveedor) {
+	public void setId_Proveedor(long id_Proveedor) {
 		this.id_Proveedor = id_Proveedor;
 	}
 
-	public int getId_Producto() {
-		return id_Producto;
+	public String getFecha_Compra() {
+		return fecha_Compra;
 	}
 
-	public void setId_Producto(int id_Producto) {
-		this.id_Producto = id_Producto;
+	public void setFecha_Compra(String fecha_Compra) {
+		this.fecha_Compra = fecha_Compra;
 	}
-
-	
 
 }
