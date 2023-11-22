@@ -21,7 +21,7 @@ public class ClienteBean {
 
 	@GetMapping("/listar")
 	public String listar(Model modelo) {
-		List<ClienteDTO> lista = cldao.Listar();
+		List<ClienteDTO> lista = cldao.listar();
 		modelo.addAttribute("listaclientes", lista);
 		return "index1";
 	}

@@ -13,8 +13,6 @@ import org.springframework.stereotype.Repository;
 
 import co.edu.unbosque.Modelos.DTO.CargoDTO;
 
-
-
 @Repository
 public class CargoDAO {
 
@@ -53,8 +51,6 @@ public class CargoDAO {
             return ps.execute() ? 1 : 0;
         });
 	}
-
-
 
 	public int actualizar(CargoDTO cargoDTO) {
 		String sql = "UPDATE Homecenter.cargo SET descrip_Cargo = ?, cant_Trabajadores = ?, sal_Min = ?, sal_Max = ? WHERE id_Cargo = ?";
