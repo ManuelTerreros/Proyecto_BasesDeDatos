@@ -40,13 +40,12 @@ public class ProveedorDAO implements ICrud<ProveedorDTO>{
 
 	 @Override
 	    public int actualizar(ProveedorDTO proveedorDTO) {
-	        String sql = "UPDATE Homecenter.proveedor SET razon_Social = ?, fecha_Contratacion = ?, id_Categoria = ?, ultima_Transaccion = ? WHERE id_Proveedor = ?";
+	        String sql = "UPDATE Homecenter.proveedor SET razon_Social = ?, fecha_Contratacion = fecha_Contratacion, id_Categoria = ?, ultima_Transaccion = ? WHERE id_Proveedor = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, proveedorDTO.getRazon_Social());
-	            preparedStatement.setString(2, proveedorDTO.getFecha_Contratacion());
-	            preparedStatement.setString(3, proveedorDTO.getId_Categoria());
-	            preparedStatement.setString(4, proveedorDTO.getUltima_Transaccion());
-	            preparedStatement.setLong(5, proveedorDTO.getId_Proveedor());
+	            preparedStatement.setString(2, proveedorDTO.getId_Categoria());
+	            preparedStatement.setString(3, proveedorDTO.getUltima_Transaccion());
+	            preparedStatement.setLong(4, proveedorDTO.getId_Proveedor());
 
 	            return preparedStatement.execute() ? 1 : 0;
 	        });

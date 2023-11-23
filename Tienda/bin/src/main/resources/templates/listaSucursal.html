@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Sucursal</title>
+</head>
+<body>
+<div class="container">
+    <h2>Lista Sucursal</h2>
+    <a th:href="@{/regresarsucursal}" class="btn btn-info">Regresar</a>
+    <a th:href="@{/agregarSucursal}" class="btn btn-success">Registrar</a>
+    <a th:href="@{/listarpais}" class="btn btn-success">Pais</a>
+    <a th:href="@{/listarregiones}" class="btn btn-success">Region</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>id Sucursal</td>
+                <td>Número de empleados</td>
+                <td>Ciudad</td>
+                <td>Dirección</td>
+                <td>id País</td>
+                <td>Comandos</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="ubicacion_SucursalDTO: ${listasucursal}">
+                <td th:text="${ubicacion_SucursalDTO.id_Sucursal}" ></td>
+                <td th:text="${ubicacion_SucursalDTO.num_Empleados}" ></td>
+                <td th:text="${ubicacion_SucursalDTO.ciudad}" ></td>
+                <td th:text="${ubicacion_SucursalDTO.direccion}" ></td>
+                <td th:text="${ubicacion_SucursalDTO.id_Pais}" ></td>
+                <td>
+                 <a th:href="@{/editarSucursal/{id}(id=${ubicacion_SucursalDTO.id_Sucursal})}" class="btn btn-warning">Editar</a>
+		         <a th:href="@{/borrarSucursal/{id}(id=${ubicacion_SucursalDTO.id_Sucursal})}" class="btn btn-danger">Borrar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>

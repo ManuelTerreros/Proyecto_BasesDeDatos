@@ -37,8 +37,8 @@ public class Venta_ProductoBean {
     }
 
     @GetMapping("/editarVenta_Producto/{id}")
-    public String editar(@PathVariable long id_Venta, long id_Producto, Model modelo) {
-        Venta_ProductoDTO venta_productoDTO = vpdao.buscarId(id_Venta, id_Producto);
+    public String editar(@PathVariable long id, Model modelo) {
+        Venta_ProductoDTO venta_productoDTO = vpdao.buscarId(id);
         modelo.addAttribute("venta_productoDTO", venta_productoDTO);
         return "formeditarVenta_Producto";
     }
@@ -49,9 +49,9 @@ public class Venta_ProductoBean {
         return "redirect:/listaVenta_Producto";
     }
 
-    @GetMapping("/borrarVenta_Producto/{id}")
-    public String borrar(@PathVariable long id_Venta, long id_Producto) {
-        vpdao.borrar(id_Venta, id_Producto);
+    @GetMapping("/borrarVenta_Producto/{id_Venta}")
+    public String borrar(@PathVariable long id_Venta) {
+        vpdao.borrar(id_Venta);
         return "redirect:/listaVenta_Producto";
     }
 

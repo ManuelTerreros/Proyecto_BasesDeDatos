@@ -6,7 +6,7 @@ public class ProductoDTO {
 	private String descrip_producto;
 	private float iva;
 	private long precio;
-	private long id_categ;
+	private String id_categ;
 	private long id_sucursal;
 	private long precio_Despues_Iva;
 	private long promocion_Prod;
@@ -17,7 +17,7 @@ public class ProductoDTO {
 	}
 
 
-	public ProductoDTO(long id_producto, String descrip_producto, float iva, long precio, long id_categ, long id_sucursal,
+	public ProductoDTO(long id_producto, String descrip_producto, float iva, long precio, String id_categ, long id_sucursal,
 			long precio_Despues_Iva, long promocion_Prod) {
 		super();
 		this.id_producto = id_producto;
@@ -70,12 +70,12 @@ public class ProductoDTO {
 	}
 
 
-	public long getId_categ() {
+	public String getId_categ() {
 		return id_categ;
 	}
 
 
-	public void setId_categ(long id_categ) {
+	public void setId_categ(String id_categ) {
 		this.id_categ = id_categ;
 	}
 

@@ -15,7 +15,6 @@
                <td>id departamento</td>
                <td>Nombre departamento</td>
                <td>Telefono</td>
-               <td>Id gerente</td>
                <td>Comandos</td>
 			</tr>
 		</thead>
@@ -24,7 +23,6 @@
 		       <td th:text="${departamentoDTO.id_Depto}" ></td>
 		       <td th:text="${departamentoDTO.nombre_Depto}" ></td>
 		       <td th:text="${departamentoDTO.telefono}" ></td>
-		       <td th:text="${departamentoDTO.id_Gerente}" ></td>
 		       <td>
 		         <a th:href="@{/editarDepartamento/{id}(id=${departamentoDTO.id_Depto})}" class="btn btn-warning">Editar</a>
 		          <a th:href="@{/borrarDepartamento/{id}(id=${departamentoDTO.id_Depto})}" class="btn btn-danger">Borrar</a>

@@ -15,8 +15,6 @@
                <td>Id cargo</td>
                <td>Descripcion</td>
                <td>Cantidad trabajadores</td>
-               <td>Salario minimo</td>
-               <td>Salario maximo</td>
                <td>Comandos</td>
 			</tr>
 		</thead>
@@ -25,8 +23,6 @@
 		       <td th:text="${cargoDTO.id_Cargo}" ></td>
 		       <td th:text="${cargoDTO.descrip_Cargo}" ></td>
 		       <td th:text="${cargoDTO.cant_Trabajadores}" ></td>
-		       <td th:text="${cargoDTO.sal_Min}" ></td>
-		       <td th:text="${cargoDTO.sal_Max}" ></td>
 		       <td>
 		         <a th:href="@{/editarCargo/{id}(id=${cargoDTO.id_Cargo})}" class="btn btn-warning">Editar</a>
 		          <a th:href="@{/borrarCargo/{id}(id=${cargoDTO.id_Cargo})}" class="btn btn-danger">Borrar</a>

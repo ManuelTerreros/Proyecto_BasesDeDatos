@@ -12,7 +12,7 @@ import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.RegionDTO;
 
 @Repository
-public class RegionDAO implements ICrud<RegionDTO>{
+public class RegionDAO implements ICrud1<RegionDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
@@ -29,7 +29,7 @@ public class RegionDAO implements ICrud<RegionDTO>{
 	                + " VALUES(?,?)";
 
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
-	            preparedStatement.setLong(1, regionDTO.getId_Region());
+	            preparedStatement.setString(1, regionDTO.getId_Region());
 	            preparedStatement.setString(2, regionDTO.getNom_Region());
 	            return preparedStatement.execute() ? 0 : -1;
 	        });
@@ -40,22 +40,22 @@ public class RegionDAO implements ICrud<RegionDTO>{
 	        String sql = "UPDATE Homecenter.Region SET nom_Region = ? WHERE id_Region = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, regionDTO.getNom_Region());
-	            preparedStatement.setLong(2, regionDTO.getId_Region());
+	            preparedStatement.setString(2, regionDTO.getId_Region());
 	            return preparedStatement.execute() ? 1 : 0;
 	        });
 	    }
 
 	 @Override
-	    public int borrar(long idRegion) {
+	    public int borrar(String idRegion) {
 	        String sql = "DELETE FROM Homecenter.Region WHERE id_Region = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
-	            ps.setLong(1, idRegion);
+	            ps.setString(1, idRegion);
 	            return ps.execute() ? 1 : 0;
 	        });
 	    }
 
 	 @Override
-	    public RegionDTO buscarId(long idRegion) {
+	    public RegionDTO buscarId(String idRegion) {
 	        String sql = "SELECT * FROM Homecenter.Region WHERE id_Region = ?";
 	        RegionDTO regionDTO = jdbcTemplate.queryForObject(sql, new Object[]{idRegion},
 	                BeanPropertyRowMapper.newInstance(RegionDTO.class));

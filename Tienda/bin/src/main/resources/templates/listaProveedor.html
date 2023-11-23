@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Proveedor</title>
+</head>
+<body>
+<div class="container">
+	<h2>Lista Proveedores</h2>
+	<a th:href="@{/agregarProveedor}" class="btn btn-success">Registrar</a>
+	<a th:href="@{/regresarMenuCar}" class="btn btn-success">Volver Menu</a>
+	<a th:href="@{/listaCategoria_Proveedor}" class="btn btn-success">Categoria Proveedor</a>
+	<a th:href="@{/listarlote}" class="btn btn-success">Lotes</a>
+	<a th:href="@{/listaDetalle_Compra}" class="btn btn-success">Detalles Compra</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+               <td>Id Proveedor</td>
+               <td>Razon social</td>
+               <td>Fecha contratacion</td>
+               <td>Id Categoria</td>
+               <td>Ultima transaccion</td>
+               <td>Comandos</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="proveedorDTO: ${listasProveedor}">
+		       <td th:text="${proveedorDTO.id_Proveedor}" ></td>
+		       <td th:text="${proveedorDTO.razon_Social}" ></td>
+		       <td th:text="${proveedorDTO.fecha_Contratacion}" ></td>
+		       <td th:text="${proveedorDTO.id_Categoria}" ></td>
+		       <td th:text="${proveedorDTO.ultima_Transaccion}" ></td>
+		       <td>
+		         <a th:href="@{/editarProveedor/{id}(id=${proveedorDTO.id_Proveedor})}" class="btn btn-warning">Editar</a>
+		          <a th:href="@{/borrarProveedor/{id}(id=${proveedorDTO.id_Proveedor})}" class="btn btn-danger">Borrar</a>
+		       </td>
+		   </tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

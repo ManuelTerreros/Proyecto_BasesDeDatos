@@ -14,8 +14,7 @@
 	<table class="table table-striped">
 		<thead>
 			<tr>
-               <td>Id Envio</td>
-               <td>Id factura venta</td>
+               <td>Id Envio</td>      
                <td>Fecha despacho</td>
                <td>Fecha entrega</td>
                <td>Direccion Entrega</td>
@@ -28,7 +27,6 @@
 		<tbody>
 		   <tr th:each="envioDTO: ${listasEnvio}">
 		       <td th:text="${envioDTO.id_Envio}" ></td>
-		       <td th:text="${envioDTO.id_Factura_Venta}" ></td>
 		       <td th:text="${envioDTO.fecha_despacho}" ></td>
 		       <td th:text="${envioDTO.fecha_entrega}" ></td>
 		       <td th:text="${envioDTO.direccion_Entrega}" ></td>

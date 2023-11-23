@@ -42,7 +42,7 @@ public class EnvioBean {
 	@GetMapping("/editarEnvio/{id}")
 	public String editarEnvio(@PathVariable String id, Model modelo) {
 		EnvioDTO envioDTO = envi.buscarId(id);
-		modelo.addAttribute("cargoDTO", envioDTO);
+		modelo.addAttribute("envioDTO", envioDTO);
 		return "formeditarEnvio";
 	}
 	

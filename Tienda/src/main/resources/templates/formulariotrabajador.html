@@ -16,7 +16,7 @@
 				<form th:action="@{/guardartrabajador}" th:object="${trabajadorDTO}" method="post">
 
 					<label>Cedula trabajador</label>
-					<input type="text" th:field="*{id_Empleado}" class="form-control" ">
+					<input type="text" th:field="*{id_Empleado}" class="form-control">
 
 					<br>
 					<label>Tipo de Documento</label>
@@ -29,7 +29,7 @@
 					<input type="text" th:field="*{primer_Apellido}" class="form-control">
 
 					<label>Fecha de contratacion</label>
-					<input type="text" th:field="*{fecha_Contratacion}" class="form-control" readonly="readonly">
+					<input type="text" th:field="*{fecha_Contratacion}" class="form-control">
 
 					<label>Id departamento</label>
 					<input type="text" th:field="*{id_Depto}" class="form-control">
@@ -45,6 +45,5 @@
 			</div>
 		</div>
 	</div>
-
 </body>
 </html>

@@ -37,9 +37,9 @@ public class Factura_CompraDAO implements ICrud<Factura_CompraDTO>{
                 ps.setLong(2, facturaCompraDTO.getCantidad());
                 ps.setLong(3, facturaCompraDTO.getPrecio_Lote());
                 ps.setFloat(4, facturaCompraDTO.getIva());
-                ps.setLong(2, facturaCompraDTO.getTotal());
-                ps.setLong(3, facturaCompraDTO.getId_Proveedor());
-                ps.setString(4, facturaCompraDTO.getFecha_Compra());
+                ps.setLong(5, facturaCompraDTO.getTotal());
+                ps.setLong(6, facturaCompraDTO.getId_Proveedor());
+                ps.setString(7, facturaCompraDTO.getFecha_Compra());
                 return ps.execute() ? 0 : -1;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -59,15 +59,14 @@ public class Factura_CompraDAO implements ICrud<Factura_CompraDTO>{
 
 	@Override
 	public int actualizar(Factura_CompraDTO facturaCompraDTO) {
-		String sql = "UPDATE Homecenter.factura_compra SET cantidad = ?, precio_Lote = ?, iva = ?, total = ?, id_Proveedor = ?, fecha_Compra = ? WHERE id_Compra = ?";
+		String sql = "UPDATE Homecenter.factura_compra SET cantidad = ?, precio_Lote = ?, iva = ?, total = ?, id_Proveedor = ?, fecha_Compra = fecha_Compra WHERE id_Compra = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
             preparedStatement.setLong(1, facturaCompraDTO.getCantidad());
             preparedStatement.setLong(2, facturaCompraDTO.getPrecio_Lote());
             preparedStatement.setFloat(3, facturaCompraDTO.getIva());
             preparedStatement.setLong(4, facturaCompraDTO.getTotal());
             preparedStatement.setLong(5, facturaCompraDTO.getId_Proveedor());
-            preparedStatement.setString(6, facturaCompraDTO.getFecha_Compra());
-            preparedStatement.setLong(7, facturaCompraDTO.getId_Compra());
+            preparedStatement.setLong(6, facturaCompraDTO.getId_Compra());
 
             return preparedStatement.execute() ? 1 : 0; 
         });

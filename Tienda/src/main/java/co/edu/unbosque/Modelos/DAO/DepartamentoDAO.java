@@ -28,14 +28,13 @@ public class DepartamentoDAO implements ICrud<DepartamentoDTO>{
 
 	@Override
 	public int guardar(DepartamentoDTO departamentoDTO) {
-		String sql = "INSERT INTO Homecenter.departamento(id_Depto,nombre_Depto,telefono,id_Gerente)"
-				+ " VALUES(?,?,?,?)";
+		String sql = "INSERT INTO Homecenter.departamento(id_Depto,nombre_Depto,telefono)"
+				+ " VALUES(?,?,?)";
 		return jdbctemple1.execute((Connection connection) -> {
             try (PreparedStatement ps = connection.prepareStatement(sql)) {
                 ps.setLong(1, departamentoDTO.getId_Depto());
                 ps.setString(2, departamentoDTO.getNombre_Depto());
                 ps.setLong(3, departamentoDTO.getTelefono());
-                ps.setLong(4, departamentoDTO.getId_Gerente());
                 return ps.execute() ? 0 : -1;
             } catch (SQLException e) {
                 throw new RuntimeException(e);
@@ -55,12 +54,11 @@ public class DepartamentoDAO implements ICrud<DepartamentoDTO>{
 
 	@Override
 	public int actualizar(DepartamentoDTO departamentoDTO) {
-		String sql = "UPDATE Homecenter.departamento SET nombre_Depto = ?, telefono = ?, id_Gerente = ? WHERE id_Depto = ?";
+		String sql = "UPDATE Homecenter.departamento SET nombre_Depto = ?, telefono = ? WHERE id_Depto = ?";
 		return jdbctemple1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
             preparedStatement.setString(1, departamentoDTO.getNombre_Depto());
             preparedStatement.setLong(2, departamentoDTO.getTelefono());
             preparedStatement.setLong(3, departamentoDTO.getId_Depto());
-            preparedStatement.setLong(4, departamentoDTO.getId_Depto());
             return preparedStatement.execute() ? 1 : 0; 
         });
 	}

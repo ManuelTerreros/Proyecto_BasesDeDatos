@@ -40,7 +40,7 @@ public class RegionBean {
 	}
 	
 	@GetMapping("/editarRegion/{id}")
-	public String editar(@PathVariable long id, Model modelo) {
+	public String editar(@PathVariable String id, Model modelo) {
 		RegionDTO regionDTO = rdao.buscarId(id);
 		modelo.addAttribute("regionDTO", regionDTO);
 		return "formeditarRegion";
@@ -53,7 +53,7 @@ public class RegionBean {
 	}
 
 	@GetMapping("/borrarregion/{id}")
-	public String borrar (@PathVariable long id) {
+	public String borrar (@PathVariable String id) {
 		rdao.borrar(id);
 		return "redirect:/listarregiones";
 	}

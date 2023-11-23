@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Departamentos</title>
+</head>
+<body>
+<div class="container">
+	<h2>Lista Departamentos</h2>
+	<a th:href="@{/agregarDepartamento}" class="btn btn-success">Registrar</a>
+	<a th:href="@{/regresarMenuDep}" class="btn btn-success">Volver Menu</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+               <td>id departamento</td>
+               <td>Nombre departamento</td>
+               <td>Telefono</td>
+               <td>Id gerente</td>
+               <td>Comandos</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="departamentoDTO: ${listadepartamento}">
+		       <td th:text="${departamentoDTO.id_Depto}" ></td>
+		       <td th:text="${departamentoDTO.nombre_Depto}" ></td>
+		       <td th:text="${departamentoDTO.telefono}" ></td>
+		       <td th:text="${departamentoDTO.id_Gerente}" ></td>
+		       <td>
+		         <a th:href="@{/editarDepartamento/{id}(id=${departamentoDTO.id_Depto})}" class="btn btn-warning">Editar</a>
+		          <a th:href="@{/borrarDepartamento/{id}(id=${departamentoDTO.id_Depto})}" class="btn btn-danger">Borrar</a>
+		       </td>
+		   </tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

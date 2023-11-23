@@ -38,7 +38,7 @@ public class PaisBean {
 	}
 
 	@GetMapping("/editarPais/{id}")
-	public String editar(@PathVariable long id, Model modelo) {
+	public String editar(@PathVariable String id, Model modelo) {
 		PaisDTO paisDTO = pdao.buscarId(id);
 		modelo.addAttribute("paisDTO", paisDTO);
 		return "formeditarpais";
@@ -51,7 +51,7 @@ public class PaisBean {
 	}
 //
 	@GetMapping("/borrarPais/{id}")
-	public String borrar (@PathVariable long id) {
+	public String borrar (@PathVariable String id) {
 		pdao.borrar(id);
 		return "redirect:/listarpais";
 	}

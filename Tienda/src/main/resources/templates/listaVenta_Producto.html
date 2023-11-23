@@ -27,8 +27,8 @@
 		       <td th:text="${venta_productoDTO.precio_Total}" ></td>
 		     
 		       <td>
-		         <a th:href="@{/editarVenta_Producto/{id}(id=${venta_productoDTO.id_Cargo})}" class="btn btn-warning">Editar</a>
-		          <a th:href="@{/borrarVenta_Producto/{id}(id=${venta_productoDTO.id_Cargo})}" class="btn btn-danger">Borrar</a>
+		         <a th:href="@{/editarVenta_Producto/{id}(id=${venta_productoDTO.id_Venta})}" class="btn btn-warning">Editar</a>
+		          <a th:href="@{/borrarVenta_Producto/{id}(id=${venta_productoDTO.id_Venta})}" class="btn btn-danger">Borrar</a>
 		       </td>
 		   </tr>
 		</tbody>

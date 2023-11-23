@@ -17,10 +17,7 @@
                  
                  <label>Id Envio</label>
                  <input type="text" th:field="*{id_Envio}" class="form-control" readonly="readonly">
-                 <br>
-                 <label>Id factura Venta</label>
-                 <input type="text" th:field="*{id_Factura_Venta}" class="form-control">
-                 
+                 <br>                 
                  <label>Fecha Despacho</label>
                  <input type="text" th:field="*{fecha_despacho}" class="form-control">
                  
@@ -31,13 +28,13 @@
                  <input type="text" th:field="*{direccion_Entrega}" class="form-control">
                  
                  <label>Id Sucursal</label>
-                 <input type="text" th:field="*{id_Sucursal}" class="form-control">
+                 <input type="text" th:field="*{id_Sucursal}" class="form-control" readonly="readonly">
                  
                  <label>Id Empleado</label>
-                 <input type="text" th:field="*{id_Empleado}" class="form-control">
+                 <input type="text" th:field="*{id_Empleado}" class="form-control" readonly="readonly">
                  
                   <label>Id Vehiculo</label>
-                 <input type="text" th:field="*{id_Vehiculo}" class="form-control">
+                 <input type="text" th:field="*{id_Vehiculo}" class="form-control" readonly="readonly">
                  
                  <input type="submit" value="Actualizar" class="btn btn-danger">
                 </form>

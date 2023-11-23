@@ -4,7 +4,6 @@ import java.sql.Date;
 
 public class EnvioDTO {
 	private String id_Envio;
-	private long id_Factura_Venta;
 	private String fecha_despacho;
 	private String fecha_entrega;
 	private String direccion_Entrega;
@@ -18,11 +17,10 @@ public class EnvioDTO {
 	}
 
 
-	public EnvioDTO(String id_Envio, long id_Factura_Venta, String fecha_despacho, String fecha_entrega,
+	public EnvioDTO(String id_Envio, String fecha_despacho, String fecha_entrega,
 			String direccion_Entrega, long id_Sucursal, long id_Empleado, String id_Vehiculo) {
 		super();
 		this.id_Envio = id_Envio;
-		this.id_Factura_Venta = id_Factura_Venta;
 		this.fecha_despacho = fecha_despacho;
 		this.fecha_entrega = fecha_entrega;
 		this.direccion_Entrega = direccion_Entrega;
@@ -40,18 +38,6 @@ public class EnvioDTO {
 	public void setId_Envio(String id_Envio) {
 		this.id_Envio = id_Envio;
 	}
-
-
-	public long getId_Factura_Venta() {
-		return id_Factura_Venta;
-	}
-
-
-	public void setId_Factura_Venta(long id_Factura_Venta) {
-		this.id_Factura_Venta = id_Factura_Venta;
-	}
-
-
 	public String getFecha_despacho() {
 		return fecha_despacho;
 	}

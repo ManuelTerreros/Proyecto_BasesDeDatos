@@ -12,7 +12,7 @@ import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.PaisDTO;
 
 @Repository
-public class PaisDAO implements ICrud<PaisDTO>{
+public class PaisDAO implements ICrud1<PaisDTO>{
 	 @Autowired
 	    private JdbcTemplate jdbcTemplate;
 
@@ -29,9 +29,9 @@ public class PaisDAO implements ICrud<PaisDTO>{
 	                + " VALUES(?,?,?)";
 
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
-	            preparedStatement.setLong(1, paisDTO.getId_Pais());
+	            preparedStatement.setString(1, paisDTO.getId_Pais());
 	            preparedStatement.setString(2, paisDTO.getNom_Pais());
-	            preparedStatement.setLong(3, paisDTO.getId_Region());
+	            preparedStatement.setString(3, paisDTO.getId_Region());
 	            return preparedStatement.execute() ? 0 : -1;
 	        });
 	    }
@@ -41,24 +41,24 @@ public class PaisDAO implements ICrud<PaisDTO>{
 	        String sql = "UPDATE Homecenter.Pais SET nom_Pais = ?, id_Region = ? WHERE id_Pais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, paisDTO.getNom_Pais());
-	            preparedStatement.setLong(2, paisDTO.getId_Region());
-	            preparedStatement.setLong(3, paisDTO.getId_Pais());
+	            preparedStatement.setString(2, paisDTO.getId_Region());
+	            preparedStatement.setString(3, paisDTO.getId_Pais());
 
 	            return preparedStatement.execute() ? 1 : 0;
 	        });
 	    }
 
 	 @Override
-	    public int borrar(long idPais) {
+	    public int borrar(String idPais) {
 	        String sql = "DELETE FROM Homecenter.Pais WHERE id_Pais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
-	            ps.setLong(1, idPais);
+	            ps.setString(1, idPais);
 	            return ps.execute() ? 1 : 0;
 	        });
 	    }
 
 	 @Override
-	    public PaisDTO buscarId(long idPais) {
+	    public PaisDTO buscarId(String idPais) {
 	        String sql = "SELECT * FROM Homecenter.Pais WHERE id_Pais = ?";
 	        PaisDTO paisDTO = jdbcTemplate.queryForObject(sql, new Object[] {idPais},
 	                BeanPropertyRowMapper.newInstance(PaisDTO.class));

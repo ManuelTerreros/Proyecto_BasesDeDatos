@@ -39,8 +39,8 @@ public class VehiculoBean {
     }
 
     @GetMapping("/editarVehiculos/{id}")
-    public String editarVehiculo(@PathVariable String id_Vehiculo, Model modelo) {
-        VehiculoDTO vehiculoDTO = vdao.buscarId(id_Vehiculo);
+    public String editarVehiculo(@PathVariable String id, Model modelo) {
+        VehiculoDTO vehiculoDTO = vdao.buscarId(id);
         modelo.addAttribute("vehiculoDTO", vehiculoDTO);
         return "formeditar_Vehiculo";
     }
@@ -52,8 +52,8 @@ public class VehiculoBean {
     }
 
     @GetMapping("/borrarVehiculos/{id}")
-    public String borrarVehiculo(@PathVariable String id_Vehiculo) {
-        vdao.borrar(id_Vehiculo);
+    public String borrarVehiculo(@PathVariable String id) {
+        vdao.borrar(id);
         return "redirect:/listarVehiculos";
     }
 

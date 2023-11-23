@@ -43,16 +43,15 @@ public class TrabajadorDAO implements ICrud<TrabajadorDTO>{
 
 	 @Override
 	    public int actualizar(TrabajadorDTO trabajadorDTO) {
-	        String sql = "UPDATE Homecenter.trabajador SET tipo_Doc = ?, primer_Nom = ?, primer_Apellido = ?, fecha_Contratacion = ?, id_Depto = ?, id_Cargo = ?, id_Sucursal = ? WHERE id_Empleado = ?";
+	        String sql = "UPDATE Homecenter.trabajador SET tipo_Doc = ?, primer_Nom = ?, primer_Apellido = ?, fecha_Contratacion = fecha_Contratacion , id_Depto = ?, id_Cargo = ?, id_Sucursal = ? WHERE id_Empleado = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, trabajadorDTO.getTipo_Doc());
 	            preparedStatement.setString(2, trabajadorDTO.getPrimer_Nom());
 	            preparedStatement.setString(3, trabajadorDTO.getPrimer_Apellido());
-	            preparedStatement.setString(4, trabajadorDTO.getFecha_Contratacion());
-	            preparedStatement.setLong(5, trabajadorDTO.getId_Depto());
-	            preparedStatement.setString(6, trabajadorDTO.getId_Cargo());
-	            preparedStatement.setString(7, trabajadorDTO.getId_Sucursal());
-	            preparedStatement.setLong(8, trabajadorDTO.getId_Empleado());
+	            preparedStatement.setLong(4, trabajadorDTO.getId_Depto());
+	            preparedStatement.setString(5, trabajadorDTO.getId_Cargo());
+	            preparedStatement.setString(6, trabajadorDTO.getId_Sucursal());
+	            preparedStatement.setLong(7, trabajadorDTO.getId_Empleado());
 
 	            return preparedStatement.execute() ? 1 : 0;
 	        });

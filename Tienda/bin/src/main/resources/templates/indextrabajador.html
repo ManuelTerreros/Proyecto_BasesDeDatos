@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Prueba1</title>
+</head>
+<body>
+    <div class="container">
+	<h2>Lista trabajadores</h2>
+	<a th:href="@{/agregartrabajador}" class="btn btn-info">Registrar</a>
+	<a th:href="@{/regresar}" class="btn btn-info">Regresar</a>
+	<a th:href="@{/listaCargo}" class="btn btn-success">Cargos</a>
+	<a th:href="@{/listaDepartamento}" class="btn btn-success">Departamentos</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+               <td>id trabajador</td>
+               <td>Doc</td>
+               <td>Nombre</td>
+               <td>Apellido</td>
+               <td>fechac de contratacion</td>
+               <td>id departamento</td>
+               <td>id cargo</td>
+               <td>id sucursal</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="TrabajadorDTO: ${listartrabajador}">
+		       <td th:text="${TrabajadorDTO.id_Empleado}" ></td>
+		       <td th:text="${TrabajadorDTO.tipo_Doc}" ></td>
+		       <td th:text="${TrabajadorDTO.primer_Nom}" ></td>
+		       <td th:text="${TrabajadorDTO.primer_Apellido}" ></td>
+		       <td th:text="${TrabajadorDTO.fecha_Contratacion}" ></td>
+		       <td th:text="${TrabajadorDTO.id_Depto}" ></td>
+		        <td th:text="${TrabajadorDTO.id_Cargo}" ></td>
+		       <td th:text="${TrabajadorDTO.id_Sucursal}" ></td>
+		       <td>
+		         <a th:href="@{/editartrabajador/{id}(id=${TrabajadorDTO.id_Empleado})}" class="btn btn-warning">Editar</a>
+		         <a th:href="@{/borrartrabajador/{id}(id=${TrabajadorDTO.id_Empleado})}" class="btn btn-danger">Borrar</a>
+		       </td>
+		   </tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

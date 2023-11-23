@@ -12,10 +12,10 @@
 			<div class="col-md-4"></div>
 			<div class="col-md-4">
 				<h2>Actualizar</h2>
-				<form th:action="@{/actualizarlote}" th:object="${LoteDTO}" method="post">
+				<form th:action="@{/actualizarlote}" th:object="${loteDTO}" method="post">
 
 					<label>id lote</label>
-					<input type="text" th:field="*{id_Lote}" class="form-control" >
+					<input type="text" th:field="*{id_Lote}" class="form-control"  readonly="readonly">
 
 					<label>Id Producto</label>
 					<input type="text" th:field="*{id_Producto}" class="form-control">

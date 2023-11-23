@@ -36,12 +36,12 @@ public class LoteBean {
 	    @PostMapping("/guardarlote")
 	    public String guardarLote(@ModelAttribute LoteDTO loteDTO) {
 	        ldao.guardar(loteDTO);
-	        return "redirect:/indexlote";
+	        return "redirect:/listarlote";
 	    }
 
 	    @GetMapping("/editarlote/{id}")
-	    public String editarLote(@PathVariable long id_Lote, Model modelo) {
-	        LoteDTO loteDTO = ldao.buscarId(id_Lote);
+	    public String editarLote(@PathVariable long id, Model modelo) {
+	        LoteDTO loteDTO = ldao.buscarId(id);
 	        modelo.addAttribute("loteDTO", loteDTO);
 	        return "formeditarlote";
 	    }
@@ -49,12 +49,12 @@ public class LoteBean {
 	    @PostMapping("/actualizarlote")
 	    public String actualizarLote(@ModelAttribute LoteDTO loteDTO) {
 	        ldao.actualizar(loteDTO);
-	        return "redirect:/indexlote";
+	        return "redirect:/listarlote";
 	    }
 
 	    @GetMapping("/borrarlote/{id}")
-	    public String borrarLote(@PathVariable long id_Lote) {
-	        ldao.borrar(id_Lote);
-	        return "redirect:/indexlote";
+	    public String borrarLote(@PathVariable long id) {
+	        ldao.borrar(id);
+	        return "redirect:/listarlote";
 	    }
 	}

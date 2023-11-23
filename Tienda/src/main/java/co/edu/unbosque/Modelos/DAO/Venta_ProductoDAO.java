@@ -12,7 +12,7 @@ import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.Venta_ProductoDTO;
 
 @Repository
-public class Venta_ProductoDAO implements ICrud2<Venta_ProductoDTO>{
+public class Venta_ProductoDAO implements ICrud<Venta_ProductoDTO>{
 
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
@@ -52,19 +52,18 @@ public class Venta_ProductoDAO implements ICrud2<Venta_ProductoDTO>{
 	}
 
 	@Override
-	public int borrar(long id_Venta, long id_Producto) {
-		String sql = "DELETE FROM Homecenter.Venta_Producto WHERE id_Venta = ? AND id_Producto = ?";
+	public int borrar(long id_Venta) {
+		String sql = "DELETE FROM Homecenter.Venta_Producto WHERE id_Venta = ?";
 		return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 			ps.setLong(1, id_Venta);
-			ps.setLong(2, id_Producto);
 			return ps.execute() ? 1 : 0;
 		});
 	}
 
 	@Override
-	public Venta_ProductoDTO buscarId(long id_Venta, long id_Producto) {
-		String sql = "SELECT * FROM Homecenter.Venta_Producto WHERE id_Venta = ? AND id_Producto = ?";
-		Venta_ProductoDTO venta_ProductoDTO = jdbcTemplate.queryForObject(sql, new Object[] { id_Venta, id_Producto },
+	public Venta_ProductoDTO buscarId(long id_Venta) {
+		String sql = "SELECT * FROM Homecenter.Venta_Producto WHERE id_Venta = ?";
+		Venta_ProductoDTO venta_ProductoDTO = jdbcTemplate.queryForObject(sql, new Object[] { id_Venta},
 				BeanPropertyRowMapper.newInstance(Venta_ProductoDTO.class));
 		return venta_ProductoDTO;
 	}

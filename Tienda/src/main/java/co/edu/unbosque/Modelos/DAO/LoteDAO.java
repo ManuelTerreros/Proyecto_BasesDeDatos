@@ -51,7 +51,7 @@ public class LoteDAO implements ICrud<LoteDTO>{
 
 	 @Override
 	    public int borrar(long idLote) {
-	        String sql = "DELETE FROM HomeCenter.lote WHERE idLote = ?";
+	        String sql = "DELETE FROM HomeCenter.lote WHERE id_Lote = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idLote);
 	            return ps.execute() ? 1 : 0;
@@ -60,7 +60,7 @@ public class LoteDAO implements ICrud<LoteDTO>{
 
 	 @Override
 	    public LoteDTO buscarId(long idLote) {
-	        String sql = "SELECT * FROM HomeCenter.lote WHERE idLote = ?";
+	        String sql = "SELECT * FROM HomeCenter.lote WHERE id_Lote = ?";
 	        LoteDTO loteDTO = jdbcTemplate1.queryForObject(sql, new Object[]{idLote},
 	                BeanPropertyRowMapper.newInstance(LoteDTO.class));
 	        return loteDTO;

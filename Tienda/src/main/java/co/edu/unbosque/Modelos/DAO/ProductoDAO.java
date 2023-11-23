@@ -33,7 +33,7 @@ public class ProductoDAO implements ICrud<ProductoDTO>{
 	            preparedStatement.setString(2, productoDTO.getDescrip_producto());
 	            preparedStatement.setFloat(3, productoDTO.getIva());
 	            preparedStatement.setLong(4, productoDTO.getPrecio());
-	            preparedStatement.setLong(5, productoDTO.getId_categ());
+	            preparedStatement.setString(5, productoDTO.getId_categ());
 	            preparedStatement.setLong(6, productoDTO.getId_sucursal());
 	            preparedStatement.setLong(7, productoDTO.getPrecio_Despues_Iva());
 	            preparedStatement.setLong(8, productoDTO.getPromocion_Prod());
@@ -48,7 +48,7 @@ public class ProductoDAO implements ICrud<ProductoDTO>{
 	            preparedStatement.setString(1, productoDTO.getDescrip_producto());
 	            preparedStatement.setFloat(2, productoDTO.getIva());
 	            preparedStatement.setLong(3, productoDTO.getPrecio());
-	            preparedStatement.setLong(4, productoDTO.getId_categ());
+	            preparedStatement.setString(4, productoDTO.getId_categ());
 	            preparedStatement.setLong(5, productoDTO.getId_sucursal());
 	            preparedStatement.setLong(6, productoDTO.getPrecio_Despues_Iva());
 	            preparedStatement.setLong(7, productoDTO.getPromocion_Prod());

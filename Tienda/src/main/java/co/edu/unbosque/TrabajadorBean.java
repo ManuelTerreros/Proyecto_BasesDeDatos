@@ -35,12 +35,12 @@ public class TrabajadorBean {
     @PostMapping("/guardartrabajador")
     public String guardarTrabajador(@ModelAttribute TrabajadorDTO trabajadorDTO) {
         tdao.guardar(trabajadorDTO);
-        return "redirect:/indextrabajador";
+        return "redirect:/listartrabajador";
     }
 
     @GetMapping("/editartrabajador/{id}")
-    public String editarTrabajador(@PathVariable long id_Empleado, Model modelo) {
-        TrabajadorDTO trabajadorDTO = tdao.buscarId(id_Empleado);
+    public String editarTrabajador(@PathVariable long id, Model modelo) {
+        TrabajadorDTO trabajadorDTO = tdao.buscarId(id);
         modelo.addAttribute("trabajadorDTO", trabajadorDTO);
         return "formeditartrabajador";
     }
@@ -48,13 +48,13 @@ public class TrabajadorBean {
     @PostMapping("/actualizartrabajador")
     public String actualizarTrabajador(@ModelAttribute TrabajadorDTO trabajadorDTO) {
         tdao.actualizar(trabajadorDTO);
-        return "redirect:/indextrabajador";
+        return "redirect:/listartrabajador";
     }
 
     @GetMapping("/borrartrabajador/{id}")
-    public String borrarTrabajador(@PathVariable long id_Empleado) {
-        tdao.borrar(id_Empleado);
-        return "redirect:/indextrabajador";
+    public String borrarTrabajador(@PathVariable long id) {
+        tdao.borrar(id);
+        return "redirect:/listartrabajador";
     }
 
 }
