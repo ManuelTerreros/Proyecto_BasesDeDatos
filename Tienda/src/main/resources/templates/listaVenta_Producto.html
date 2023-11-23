@@ -1,0 +1,38 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Venta Productos</title>
+</head>
+<body>
+<div class="container">
+	<h2>Lista Venta productos</h2>
+	<a th:href="@{/agregarVenta_Producto}" class="btn btn-success">Registrar</a>
+	<a th:href="@{/regresar}" class="btn btn-info">Regresar menu</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+               <td>Id Venta</td>
+               <td>Id Producto</td>
+               <td>Cantidad</td>
+               <td>Precio total</td>
+               <td>Comandos</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="venta_productoDTO: ${listaventa_productos}">
+		       <td th:text="${venta_productoDTO.id_Venta}" ></td>
+		       <td th:text="${venta_productoDTO.id_Producto}" ></td>
+		       <td th:text="${venta_productoDTO.cantidad}" ></td>
+		       <td th:text="${venta_productoDTO.precio_Total}" ></td>
+		     
+		       <td>
+		         <a th:href="@{/editarVenta_Producto/{id}(id=${venta_productoDTO.id_Cargo})}" class="btn btn-warning">Editar</a>
+		          <a th:href="@{/borrarVenta_Producto/{id}(id=${venta_productoDTO.id_Cargo})}" class="btn btn-danger">Borrar</a>
+		       </td>
+		   </tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

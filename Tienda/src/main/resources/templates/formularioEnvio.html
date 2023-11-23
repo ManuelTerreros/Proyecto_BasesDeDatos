@@ -1,0 +1,46 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>FormularioEnvio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+	rel="stylesheet"
+	integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+	crossorigin="anonymous">
+</head>
+<body>
+	<div class="container-fluid-p-5">
+		<div class="row">
+			<div class="col-md-4"></div>
+			<div class="col-md-4">
+				<h2>Nuevo Registro</h2>
+                <form th:action="@{/guardarEnvio}" th:object="${envioDTO}" method="post">
+                 
+                 <label>Id Envio</label>
+                 <input type="text" th:field="*{id_Envio}" class="form-control">
+                 <br>
+                 <label>Id factura Venta</label>
+                 <input type="text" th:field="*{id_Factura_Venta}" class="form-control">
+                 
+                 <label>Fecha Despacho</label>
+                 <input type="text" th:field="*{fecha_despacho}" class="form-control">
+                 
+                 <label>Fecha Entrega</label>
+                 <input type="text" th:field="*{fecha_entrega}" class="form-control">
+                 
+                 <label>Direccion Entrega</label>
+                 <input type="text" th:field="*{direccion_Entrega}" class="form-control">
+                 
+                 <label>Id Sucursal</label>
+                 <input type="text" th:field="*{id_Sucursal}" class="form-control">
+                 
+                 <label>Id Empleado</label>
+                 <input type="text" th:field="*{id_Empleado}" class="form-control">
+                 
+                 <label>Id Vehiculo</label>
+                 <input type="text" th:field="*{id_Vehiculo}" class="form-control">
+                 
+                  <input type="submit" value="Registrar" class="btn btn-danger">
+                </form>
+			</div>
+		</div>
+	</div>
