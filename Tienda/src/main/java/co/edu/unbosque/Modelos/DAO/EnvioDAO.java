@@ -9,10 +9,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.PreparedStatementCallback;
+import org.springframework.stereotype.Repository;
 
 import co.edu.unbosque.Modelos.DTO.Categoria_ProveedorDTO;
 import co.edu.unbosque.Modelos.DTO.EnvioDTO;
 
+@Repository
 public class EnvioDAO implements ICrud1<EnvioDTO>{
 	@Autowired
 	private JdbcTemplate jdbctemple1;

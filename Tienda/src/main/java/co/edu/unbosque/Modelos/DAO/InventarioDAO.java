@@ -25,27 +25,27 @@ public class InventarioDAO implements ICrud1<InventarioDTO>{
 
 	   @Override
 	    public int guardar(InventarioDTO inventarioDTO) {
-	        String sql = "INSERT INTO Homecenter.inventario(id_Inventario, id_Producto, costo_Producto, cantidad_Inventario, costo_Toltal_Inv)"
+	        String sql = "INSERT INTO Homecenter.inventario(id_Inventario, id_Producto, costo_Producto, cantidad_Inventario, costo_Total_Inv)"
 	                + " VALUES(?,?,?,?,?)";
 
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setString(1, inventarioDTO.getId_Inventario());
-	            preparedStatement.setLong(2, inventarioDTO.getId_Producto());
+	            preparedStatement.setLong(2,  inventarioDTO.getId_Producto());
 	            preparedStatement.setLong(3, inventarioDTO.getCosto_Producto());
 	            preparedStatement.setLong(4, inventarioDTO.getCantidad_Inventario());
-	            preparedStatement.setLong(5, inventarioDTO.getCosto_Toltal_Inv());
+	            preparedStatement.setLong(5, inventarioDTO.getCosto_Total_Inv());
 	            return preparedStatement.execute() ? 0 : -1;
 	        });
 	    }
 
 	   @Override
 	    public int actualizar(InventarioDTO inventarioDTO) {
-	        String sql = "UPDATE Homecenter.inventario SET id_Producto = ?, costo_Producto = ?, cantidad_Inventario = ?, costo_Toltal_Inv = ? WHERE id_Inventario = ?";
+	        String sql = "UPDATE Homecenter.inventario SET id_Producto = ?, costo_Producto = ?, cantidad_Inventario = ?, costo_Total_Inv = ? WHERE id_Inventario = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setLong(1, inventarioDTO.getId_Producto());
 	            preparedStatement.setLong(2, inventarioDTO.getCosto_Producto());
 	            preparedStatement.setLong(3, inventarioDTO.getCantidad_Inventario());
-	            preparedStatement.setLong(4, inventarioDTO.getCosto_Toltal_Inv());
+	            preparedStatement.setLong(4, inventarioDTO.getCosto_Total_Inv());
 	            preparedStatement.setString(5, inventarioDTO.getId_Inventario());
 
 	            return preparedStatement.execute() ? 1 : 0;
@@ -54,7 +54,7 @@ public class InventarioDAO implements ICrud1<InventarioDTO>{
 
 	   @Override
 	    public int borrar(String idInventario) {
-	        String sql = "DELETE FROM Homecenter.inventario WHERE idInventario = ?";
+	        String sql = "DELETE FROM Homecenter.inventario WHERE id_Inventario = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setString(1, idInventario);
 	            return ps.execute() ? 1 : 0;
@@ -63,7 +63,7 @@ public class InventarioDAO implements ICrud1<InventarioDTO>{
 
 	    @Override
 	    public InventarioDTO buscarId(String idInventario) {
-	        String sql = "SELECT * FROM Homecenter.inventario WHERE idInventario = ?";
+	        String sql = "SELECT * FROM Homecenter.inventario WHERE id_Inventario = ?";
 	        InventarioDTO inventarioDTO = jdbcTemplate.queryForObject(sql, new Object[] {idInventario},
 	                BeanPropertyRowMapper.newInstance(InventarioDTO.class));
 	        return inventarioDTO;

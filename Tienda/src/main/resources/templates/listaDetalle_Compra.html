@@ -1,0 +1,32 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Detalle Compra</title>
+</head>
+<body>
+<div class="container">
+	<h2>Lista detalle compra</h2>
+	<a th:href="@{/agregarDetalle_Compra}" class="btn btn-success">Registrar</a>
+	<table class="table table-striped">
+		<thead>
+			<tr>
+               <td>Id compra</td>
+               <td>Id lote</td>
+               <td>Comandos</td>
+			</tr>
+		</thead>
+		<tbody>
+		   <tr th:each="detalle_CompraDTO: ${listasDetalle_Compra}">
+		       <td th:text="${detalle_CompraDTO.id_Compra}" ></td>
+		       <td th:text="${detalle_CompraDTO.id_lote}" ></td>
+		       <td>
+		         <a th:href="@{/editarDetalle_Compra/{id}(id=${detalle_CompraDTO.id_Compra})}" class="btn btn-warning">Editar</a>
+		          <a th:href="@{/borrarDetalle_Compra/{id}(id=${detalle_CompraDTO.id_Compra})}" class="btn btn-danger">Borrar</a>
+		       </td>
+		   </tr>
+		</tbody>
+	</table>
+	</div>
+</body>
+</html>

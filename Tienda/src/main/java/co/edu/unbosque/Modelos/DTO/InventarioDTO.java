@@ -6,22 +6,28 @@ public class InventarioDTO {
 	private long id_Producto;
 	private long costo_Producto;
 	private long cantidad_Inventario;
-	private long costo_Toltal_Inv;
+	private long costo_Total_Inv;
 	
 	public InventarioDTO() {
 		// TODO Auto-generated constructor stub
 	}
 
 	public InventarioDTO(String id_Inventario, long id_Producto, long costo_Producto, long cantidad_Inventario,
-			long costo_Toltal_Inv) {
+			long costo_Total_Inv) {
 		super();
 		this.id_Inventario = id_Inventario;
 		this.id_Producto = id_Producto;
 		this.costo_Producto = costo_Producto;
 		this.cantidad_Inventario = cantidad_Inventario;
-		this.costo_Toltal_Inv = costo_Toltal_Inv;
+		this.costo_Total_Inv = costo_Total_Inv;
 	}
 
+	public long getCosto_Total_Inv() {
+		return costo_Total_Inv;
+	}
+	public void setCosto_Total_Inv(long costo_Total_Inv) {
+		this.costo_Total_Inv = costo_Total_Inv;
+	}
 	public String getId_Inventario() {
 		return id_Inventario;
 	}
@@ -54,12 +60,6 @@ public class InventarioDTO {
 		this.cantidad_Inventario = cantidad_Inventario;
 	}
 
-	public long getCosto_Toltal_Inv() {
-		return costo_Toltal_Inv;
-	}
 
-	public void setCosto_Toltal_Inv(long costo_Toltal_Inv) {
-		this.costo_Toltal_Inv = costo_Toltal_Inv;
-	}
 
 }

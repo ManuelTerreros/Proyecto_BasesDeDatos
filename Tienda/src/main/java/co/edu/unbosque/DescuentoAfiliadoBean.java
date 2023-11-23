@@ -18,7 +18,7 @@ public class DescuentoAfiliadoBean {
 	private Descuentos_AfiliadosDAO dao;
 	
 	@GetMapping("/listarDescuentos")
-	public String listarAfiliados(Model modelo) {
+	public String listardescuentos(Model modelo) {
 		List<Descuentos_afiliadosDTO> lista = dao.listar();
 		modelo.addAttribute("listaDescuentos", lista);
 		return "listadescuentos";

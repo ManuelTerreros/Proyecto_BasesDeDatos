@@ -18,14 +18,14 @@ public class Ubicacion_SucursalDAO implements ICrud<Ubicacion_SucursalDTO>{
 
 	 @Override
 	    public List<Ubicacion_SucursalDTO> listar() {
-	        String sql = "SELECT * FROM Homecenter.Ubicacion_Sucursal";
+	        String sql = "SELECT * FROM Homecenter.sucursales";
 	        List<Ubicacion_SucursalDTO> lista = jdbcTemplate1.query(sql, BeanPropertyRowMapper.newInstance(Ubicacion_SucursalDTO.class));
 	        return lista;
 	    }
 
 	    @Override
 	    public int guardar(Ubicacion_SucursalDTO ubicacion_SucursalDTO) {
-	        String sql = "INSERT INTO Homecenter.Ubicacion_Sucursal(id_Sucursal, num_Empleados, ciudad, direccion, id_Pais)"
+	        String sql = "INSERT INTO Homecenter.sucursales(id_Sucursal, num_Empleados, ciudad, direccion, id_Pais)"
 	                + " VALUES(?,?,?,?,?)";
 
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
@@ -40,7 +40,7 @@ public class Ubicacion_SucursalDAO implements ICrud<Ubicacion_SucursalDTO>{
 
 	    @Override
 	    public int actualizar(Ubicacion_SucursalDTO ubicacion_SucursalDTO) {
-	        String sql = "UPDATE Homecenter.Ubicacion_Sucursal SET num_Empleados = ?, ciudad = ?, direccion = ?, id_Pais = ? WHERE id_Sucursal = ?";
+	        String sql = "UPDATE Homecenter.sucursales SET num_Empleados = ?, ciudad = ?, direccion = ?, id_Pais = ? WHERE id_Sucursal = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) preparedStatement -> {
 	            preparedStatement.setLong(1, ubicacion_SucursalDTO.getNum_Empleados());
 	            preparedStatement.setString(2, ubicacion_SucursalDTO.getCiudad());
@@ -54,7 +54,7 @@ public class Ubicacion_SucursalDAO implements ICrud<Ubicacion_SucursalDTO>{
 
 	    @Override
 	    public int borrar(long idSucursal) {
-	        String sql = "DELETE FROM Homecenter.Ubicacion_Sucursal WHERE idSucursal = ?";
+	        String sql = "DELETE FROM Homecenter.sucursales WHERE id_Sucursal = ?";
 	        return jdbcTemplate1.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idSucursal);
 	            return ps.execute() ? 1 : 0;
@@ -63,7 +63,7 @@ public class Ubicacion_SucursalDAO implements ICrud<Ubicacion_SucursalDTO>{
 
 	    @Override
 	    public Ubicacion_SucursalDTO buscarId(long idSucursal) {
-	        String sql = "SELECT * FROM Homecenter.Ubicacion_Sucursal WHERE idSucursal = ?";
+	        String sql = "SELECT * FROM Homecenter.sucursales WHERE id_Sucursal = ?";
 	        Ubicacion_SucursalDTO ubicacion_SucursalDTO = jdbcTemplate1.queryForObject(sql, new Object[]{idSucursal},
 	                BeanPropertyRowMapper.newInstance(Ubicacion_SucursalDTO.class));
 	        return ubicacion_SucursalDTO;

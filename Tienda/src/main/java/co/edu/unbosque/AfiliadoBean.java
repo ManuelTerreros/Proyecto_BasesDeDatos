@@ -23,7 +23,7 @@ public class AfiliadoBean {
 	public String listarAfiliados(Model modelo) {
 		List<AfiliadoDTO> lista = aficao.listar();
 		modelo.addAttribute("listaafiliados", lista);
-		return "listaAfiliados";
+		return "listarAfiliados";
 	}
 	
 	@GetMapping("/agregarAfiliado")

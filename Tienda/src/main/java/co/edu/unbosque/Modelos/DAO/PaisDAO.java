@@ -50,7 +50,7 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public int borrar(long idPais) {
-	        String sql = "DELETE FROM Homecenter.Pais WHERE idPais = ?";
+	        String sql = "DELETE FROM Homecenter.Pais WHERE id_Pais = ?";
 	        return jdbcTemplate.execute(sql, (PreparedStatementCallback<Integer>) ps -> {
 	            ps.setLong(1, idPais);
 	            return ps.execute() ? 1 : 0;
@@ -59,7 +59,7 @@ public class PaisDAO implements ICrud<PaisDTO>{
 
 	 @Override
 	    public PaisDTO buscarId(long idPais) {
-	        String sql = "SELECT * FROM Homecenter.Pais WHERE idPais = ?";
+	        String sql = "SELECT * FROM Homecenter.Pais WHERE id_Pais = ?";
 	        PaisDTO paisDTO = jdbcTemplate.queryForObject(sql, new Object[] {idPais},
 	                BeanPropertyRowMapper.newInstance(PaisDTO.class));
 	        return paisDTO;

@@ -1,0 +1,42 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	  xmlns:th="http://www.thymeleaf.org">
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+<title>Inventario</title>
+</head>
+<body>
+<div class="container">
+    <h2>Lista Inventario</h2>
+    <a th:href="@{/regresarinventario}" class="btn btn-info">Regresar</a>
+    <a th:href="@{/agregarInventario}" class="btn btn-success">Registrar</a>
+    <a th:href="@{/listarProductos}" class="btn btn-success">Productos</a>
+    <a th:href="@{/listarPromociones}" class="btn btn-success">Promociones</a>
+    <a th:href="@{/listarCategoriaProd}" class="btn btn-success">Categoria Prod</a>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>Id Inventario</td>
+                <td>Id Producto</td>
+                <td>Costo Producto</td>
+                <td>Cantidad inventario</td>
+                <td>Costo Total</td>
+                <td>Comandos</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="inventarioDTO: ${listaInventario}">
+                <td th:text="${inventarioDTO.id_Inventario}" ></td>
+                <td th:text="${inventarioDTO.id_Producto}" ></td>
+                <td th:text="${inventarioDTO.costo_Producto}" ></td>
+                <td th:text="${inventarioDTO.cantidad_Inventario}" ></td>
+                <td th:text="${inventarioDTO.costo_Total_Inv}" ></td>
+                <td>
+                 <a th:href="@{/editarinventario/{id}(id=${inventarioDTO.id_Inventario})}" class="btn btn-warning">Editar</a>
+		      <a th:href="@{/borrarinventario/{id}(id=${inventarioDTO.id_Inventario})}" class="btn btn-danger">Borrar</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
